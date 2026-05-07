@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EquipoRedService {
+public class investigadorService {
     public List<String> Listar(){
-        return List.of("Router", "Switch");
+        return List.of("Luis Gorpa","Rannoverng Yanac");
     }
 }
