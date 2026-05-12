@@ -33,5 +33,13 @@ class CalculadoraServiceTest {
                 () -> service.dividir(4,0)
         );
     }
+
+    @Test
+    void multiplicar(){
+        assertEquals(
+                6,
+                service.multiplicar(2,3)
+        );
+    }
 }
  
