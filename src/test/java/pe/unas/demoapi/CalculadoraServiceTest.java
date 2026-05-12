@@ -38,8 +38,8 @@ class CalculadoraServiceTest {
     @Test
     void multiplicar(){
         assertEquals(
-                6,
-                service.multiplicar(2,3)
+                9,
+                service.multiplicar(3,3)
         );
     }
 
