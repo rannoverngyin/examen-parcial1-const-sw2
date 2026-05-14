@@ -17,15 +17,25 @@ A continuación se presentan las evidencias de la ejecución de pruebas en cada 
 
 ### Fase RED: Prueba Fallida
 
-Se ejecuta `./mvnw test` por primera vez, después de crear el archivo de pruebas `NotaServiceTest.java` pero antes de implementar la clase `NotaService`. La compilación falla como se esperaba, lo que demuestra que las pruebas se escribieron primero.
+Se ejecuta `./mvnw test` por primera vez, después de crear el archivo de pruebas `NotaServiceTest.java` pero antes de implementar la clase `NotaService`. La compilación falla como se esperaba.
 
 ![Prueba Fallida (Fase RED)](build_failure.png)
 
-### Fase GREEN: Pruebas Exitosas
+### Fase GREEN: Implementación Inicial
 
-Después de implementar la lógica mínima necesaria en `NotaService.java` y realizar la refactorización, se vuelve a ejecutar `./mvnw test`. El resultado es `BUILD SUCCESS`, lo que confirma que la implementación es correcta y cumple con todos los casos de prueba definidos.
+Se implementa la lógica mínima para que las pruebas pasen.
 
-![Pruebas Exitosas (Fase GREEN)](build_success.png)
+### Fase REFACTOR: Código Mejorado
+
+Se mejora la legibilidad y estructura del código en `NotaService.java` sin alterar su comportamiento.
+
+![Código Refactorizado](refactorizado.png)
+
+### Resultado Final: Pruebas Exitosas
+
+Después de la refactorización, se vuelve a ejecutar `./mvnw test`. El resultado es `BUILD SUCCESS`, lo que confirma que todo el proceso fue seguro y exitoso.
+
+![Pruebas Exitosas (Fase GREEN/REFACTOR)](build_success.png)
 
 ### Reporte de Surefire
 
