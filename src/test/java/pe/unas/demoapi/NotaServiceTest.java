@@ -15,6 +15,11 @@ class NotaServiceTest {
     }
 
     @Test
+    void calculaPromedioPonderado() {
+        assertEquals(16.2, service.promedioPonderado(15.0, 17.0), 0.001);
+    }
+
+    @Test
     void determinaAprobadoCuandoPromedioEsMayorOIgualA105() {
         assertTrue(service.estaAprobado(10.5));
     }

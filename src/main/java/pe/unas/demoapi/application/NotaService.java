@@ -19,6 +19,12 @@ public class NotaService {
         return promedio >= NOTA_APROBATORIA;
     }
 
+    public double promedioPonderado(double practica, double examen) {
+        validarNota(practica);
+        validarNota(examen);
+        return practica * 0.40 + examen * 0.60;
+    }
+
     private double calcularPromedio(double nota1, double nota2) {
         return (nota1 + nota2) / 2.0;
     }
