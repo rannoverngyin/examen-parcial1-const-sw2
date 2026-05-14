@@ -9,10 +9,19 @@
 | Promedio ponderado válido | Cálculo incorrecto de ponderado | Alta      | 15, 17  | 16.2               |
 
 
+## Evidencia de la Fase RED
+img/Evidencia de FASE RED.png
+
+## Evidencia de la Fase GREEN
+img/Evidencia de FASE GREEN.png
+
+## Evidencia de la Fase REFACTOR
+img/Evidencia de FASE REFACTOR.png
+
 ## Evidencia de BUILD SUCCESS
-![Build Success](images/build_success.png)
+img/Evidencia de BUILD SUCCESS.png
 
 ## Reporte Surefire
-![Surefire Reports](images/surefire_reports.png)
+img/Reporte Surefire.png
 
 
