@@ -6,3 +6,4 @@ Tabla de priorización de pruebas – Sesión 10
 | Nota menor a aprobatoria  | Clasificación incorrecta        | Media     | 10.4    | false              |
 | Nota fuera de rango       | Dato inválido no controlado     | Alta      | 21, 15  | Excepción          |
 | Promedio ponderado válido | Cálculo incorrecto de ponderado | Alta      | 15, 17  | 16.2               |
+
