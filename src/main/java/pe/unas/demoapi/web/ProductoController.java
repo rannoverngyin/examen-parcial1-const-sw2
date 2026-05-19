@@ -2,6 +2,7 @@ package pe.unas.demoapi.web;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +31,20 @@ public class ProductoController {
         return productoService.total();
     }
 
+    @GetMapping("/existe")
+    public boolean existe(@RequestParam String nombre) {
+        return productoService.existe(nombre);
+    }
+
     @PostMapping
     public String agregar(@RequestParam String nombre) {
         productoService.agregar(nombre);
         return "Producto agregado";
+    }
+
+    @DeleteMapping
+    public String eliminar(@RequestParam String nombre) {
+        productoService.eliminar(nombre);
+        return "Producto eliminado";
     }
 }
