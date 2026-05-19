@@ -1,11 +1,13 @@
 package pe.unas.demoapi.application;
 
-import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.springframework.stereotype.Service;
+
 @Service
 public class ProductoService {
+
     private final List<String> productos = new CopyOnWriteArrayList<>();
 
     public ProductoService() {

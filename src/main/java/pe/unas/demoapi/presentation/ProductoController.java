@@ -1,41 +1,45 @@
 package pe.unas.demoapi.presentation;
 
-import org.springframework.http.ResponseEntity;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import pe.unas.demoapi.application.ProductoService;
 
 @RestController
+@RequestMapping("/productos")
 public class ProductoController {
 
-    private final ProductoService service;
+    private final ProductoService productoService;
 
-    public ProductoController(ProductoService service) {
-        this.service = service;
+    public ProductoController(ProductoService productoService) {
+        this.productoService = productoService;
     }
 
-    @GetMapping("/productos")
-    public ResponseEntity<?> listar() {
-        return ResponseEntity.ok(service.listar());
+    @GetMapping
+    public List<String> listar() {
+        return productoService.listar();
     }
 
-    @PostMapping("/productos")
-    public ResponseEntity<String> agregar(@RequestParam String nombre) {
-        service.agregar(nombre);
-        return ResponseEntity.ok("Producto agregado");
+    @PostMapping
+    public String agregar(@RequestParam String nombre) {
+        productoService.agregar(nombre);
+        return "Producto agregado";
     }
 
-    @DeleteMapping("/productos")
-    public ResponseEntity<String> eliminar(@RequestParam String nombre) {
-        service.eliminar(nombre);
-        return ResponseEntity.ok("Producto eliminado");
+    @DeleteMapping
+    public String eliminar(@RequestParam String nombre) {
+        productoService.eliminar(nombre);
+        return "Producto eliminado";
     }
 
-    @GetMapping("/productos/total")
-    public ResponseEntity<Integer> total() {
-        return ResponseEntity.ok(service.total());
+    @GetMapping("/total")
+    public int total() {
+        return productoService.total();
     }
 }
