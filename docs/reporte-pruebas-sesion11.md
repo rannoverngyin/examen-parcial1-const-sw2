@@ -1,16 +1,34 @@
-# Reporte de Pruebas - Sesión 11
+# Pruebas Ejecutadas
 
-## Pruebas ejecutadas
-- ProductoControllerIntegrationTest
-- ProductoServiceConcurrencyTest
-- ProductoApiConcurrencyTest (opcional)
 
-## Resultado
+## 1️⃣ ProductoControllerIntegrationTest
+
+Esta prueba valida la integración entre el controlador y los endpoints de la API REST.
+
+
+![alt text](ProductoControllerIntegrationTest.png)
+
+
+## 2️⃣ ProductoServiceConcurrencyTest
+
+Esta prueba valida el comportamiento concurrente del servicio utilizando múltiples hilos.
+
+![alt text](ProductoServiceConcurrencyTest.png)
+
+
+
+## 3️⃣ ProductoApiConcurrencyTest
+
+Esta prueba valida solicitudes concurrentes directamente sobre la API REST.
+
+![alt text](ProductoApiConcurrencyTest.png)
+
+
+# 🚀 Resultado General
+
+```bash
+Tests run: 4
+Failures: 0
+Errors: 0
+
 BUILD SUCCESS
-
-## Evidencias
-- Captura de mvn test
-- Captura de endpoint /productos
-
-## Conclusión
-La API responde correctamente y el servicio mantiene consistencia básica ante solicitudes concurrentes.

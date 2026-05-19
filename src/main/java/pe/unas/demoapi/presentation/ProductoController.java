@@ -1,14 +1,11 @@
 package pe.unas.demoapi.presentation;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pe.unas.demoapi.application.ProductoService;
+import java.util.List;
 
 @RestController
+@RequestMapping("/productos")
 public class ProductoController {
 
     private final ProductoService service;
@@ -17,25 +14,25 @@ public class ProductoController {
         this.service = service;
     }
 
-    @GetMapping("/productos")
-    public ResponseEntity<?> listar() {
-        return ResponseEntity.ok(service.listar());
+    @GetMapping
+    public List<String> listar() {
+        return service.listar();
     }
 
-    @PostMapping("/productos")
-    public ResponseEntity<String> agregar(@RequestParam String nombre) {
+    @PostMapping
+    public String agregar(@RequestParam String nombre) {
         service.agregar(nombre);
-        return ResponseEntity.ok("Producto agregado");
+        return "Producto agregado";
     }
 
-    @DeleteMapping("/productos")
-    public ResponseEntity<String> eliminar(@RequestParam String nombre) {
+    @DeleteMapping
+    public String eliminar(@RequestParam String nombre) {
         service.eliminar(nombre);
-        return ResponseEntity.ok("Producto eliminado");
+        return "Producto eliminado";
     }
 
-    @GetMapping("/productos/total")
-    public ResponseEntity<Integer> total() {
-        return ResponseEntity.ok(service.total());
+    @GetMapping("/total")
+    public int total() {
+        return service.total();
     }
 }
