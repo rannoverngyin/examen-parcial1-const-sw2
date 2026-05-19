@@ -1,0 +1,37 @@
+package mantenimiento.banco_pruebas.application;
+
+import org.springframework.stereotype.Service; 
+import java.util.*;
+ 
+@Service 
+public class ProductoService { 
+    private final List<String> productos = new ArrayList<>(); 
+ 
+    public ProductoService() { 
+        productos.add("Laptop"); 
+        productos.add("Mouse"); 
+    } 
+ 
+    public List<String> listar() { 
+        return productos; 
+    } 
+ 
+    public void agregar(String nombre) { 
+        if (nombre == null || nombre.isBlank()) { 
+            throw new IllegalArgumentException("El nombre del producto es obligatorio"); 
+        } 
+        productos.add(nombre.trim()); 
+    } 
+ 
+    public void eliminar(String nombre) { 
+        productos.remove(nombre); 
+    } 
+ 
+    public int total() { 
+        return productos.size(); 
+    } 
+ 
+    public boolean existe(String nombre) { 
+        return productos.contains(nombre); 
+    } 
+} 
