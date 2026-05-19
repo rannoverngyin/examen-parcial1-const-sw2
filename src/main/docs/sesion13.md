@@ -118,3 +118,39 @@ class ProductoServiceTest {
 [INFO] Finished at: 2026-05-19T14:12:21-05:00
 [INFO] ------------------------------------------------------------------------
 PS E:\CURSOS\CONSTRUCCION DE SOFTWARE II\banco_pruebas> 
+
+# creación de nuevo código
+
+@Test 
+@DisplayName("No debe aceptar producto duplicado") 
+void noDebeAceptarProductoDuplicado() { 
+    assertThrows(IllegalArgumentException.class, () -> service.agregar("Laptop")); 
+} 
+
+Service
+String nombreLimpio = nombre.trim(); 
+ 
+    if (productos.contains(nombreLimpio)) { 
+        throw new IllegalArgumentException("El producto ya existe"); 
+    } 
+ 
+    productos.add(nombreLimpio); 
+
+RESULTADOS
+
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running mantenimiento.banco_pruebas.application.ProductoServiceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s -- in mantenimiento.banco_pruebas.application.ProductoServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.123 s
+[INFO] Finished at: 2026-05-19T14:45:21-05:00
+[INFO] ------------------------------------------------------------------------
