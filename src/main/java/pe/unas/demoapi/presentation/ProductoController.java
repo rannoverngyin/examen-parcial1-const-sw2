@@ -2,13 +2,11 @@ package pe.unas.demoapi.presentation;
 
 import org.springframework.web.bind.annotation.*;
 import pe.unas.demoapi.application.ProductoService;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/productos")
 public class ProductoController {
-
     private final ProductoService service;
 
     public ProductoController(ProductoService service) {
@@ -35,5 +33,11 @@ public class ProductoController {
     @GetMapping("/total")
     public int total() {
         return service.total();
+    }
+
+    // Ejercicio del punto 9: Endpoint GET para verificar existencia
+    @GetMapping("/existe")
+    public boolean existe(@RequestParam String nombre) {
+        return service.existe(nombre);
     }
 }
