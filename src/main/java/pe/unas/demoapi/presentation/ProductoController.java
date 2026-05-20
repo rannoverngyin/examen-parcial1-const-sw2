@@ -38,4 +38,9 @@ public class ProductoController {
     public ResponseEntity<Integer> total() {
         return ResponseEntity.ok(service.total());
     }
+
+    @GetMapping("/productos/existe")
+    public ResponseEntity<Boolean> existe(@RequestParam String nombre) {
+        return ResponseEntity.ok(service.existe(nombre));
+    }
 }
