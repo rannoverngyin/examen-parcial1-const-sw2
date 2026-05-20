@@ -28,4 +28,9 @@ public class ProductoService {
     public int total() {
         return productos.size();
     }
+    
+    public boolean existe(String nombre) {
+        return productos.contains(nombre);
+    }
+
 }
