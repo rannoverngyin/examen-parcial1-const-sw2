@@ -1,41 +1,40 @@
 package pe.unas.demoapi.presentation;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import pe.unas.demoapi.application.ProductoService;
+import java.util.List;
 
 @RestController
+@RequestMapping("/productos")
 public class ProductoController {
 
-    private final ProductoService service;
+    @Autowired
+    private ProductoService productoService;
 
-    public ProductoController(ProductoService service) {
-        this.service = service;
+    @GetMapping
+    public List<String> listar() {
+        return productoService.listar();
     }
 
-    @GetMapping("/productos")
-    public ResponseEntity<?> listar() {
-        return ResponseEntity.ok(service.listar());
+    @PostMapping
+    public String agregar(@RequestParam String nombre) {
+        productoService.agregar(nombre);
+        return "Producto agregado";
     }
 
-    @PostMapping("/productos")
-    public ResponseEntity<String> agregar(@RequestParam String nombre) {
-        service.agregar(nombre);
-        return ResponseEntity.ok("Producto agregado");
+    @DeleteMapping
+    public String eliminar(@RequestParam String nombre) {
+        productoService.eliminar(nombre);
+        return "Producto eliminado";
     }
 
-    @DeleteMapping("/productos")
-    public ResponseEntity<String> eliminar(@RequestParam String nombre) {
-        service.eliminar(nombre);
-        return ResponseEntity.ok("Producto eliminado");
+    @GetMapping("/total")
+    public int total() {
+        return productoService.total();
     }
-
-    @GetMapping("/productos/total")
-    public ResponseEntity<Integer> total() {
-        return ResponseEntity.ok(service.total());
+    @GetMapping("/existe")
+    public boolean existe(@RequestParam String nombre) {
+        return productoService.existe(nombre);
     }
 }

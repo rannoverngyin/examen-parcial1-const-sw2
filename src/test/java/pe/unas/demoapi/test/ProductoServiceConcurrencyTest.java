@@ -1,4 +1,4 @@
-package pe.unas.demoapi;
+package pe.unas.demoapi.test;
 
 import org.junit.jupiter.api.Test;
 import pe.unas.demoapi.application.ProductoService;
