@@ -1,37 +1,42 @@
 package pe.unas.demoapi.presentation;
-import pe.unas.demoapi.application.ProductoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.*;
+import pe.unas.demoapi.application.ProductoService;
 import java.util.List;
 
 @RestController
 @RequestMapping("/productos")
 public class ProductoController {
+    private final ProductoService service;
 
-    @Autowired
-    private ProductoService productoService;
+    public ProductoController(ProductoService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public List<String> listar() {
-        return productoService.listar();
+        return service.listar();
     }
 
     @PostMapping
-    public ResponseEntity<String> agregar(@RequestParam String nombre) {
-        productoService.agregar(nombre);
-        return ResponseEntity.ok("Producto agregado");
+    public String agregar(@RequestParam String nombre) {
+        service.agregar(nombre);
+        return "Producto agregado";
     }
 
     @DeleteMapping
-    public ResponseEntity<String> eliminar(@RequestParam String nombre) {
-        productoService.eliminar(nombre);
-        return ResponseEntity.ok("Producto eliminado");
+    public String eliminar(@RequestParam String nombre) {
+        service.eliminar(nombre);
+        return "Producto eliminado";
     }
 
     @GetMapping("/total")
     public int total() {
-        return productoService.total();
-       }
+        return service.total();
+    }
+    @GetMapping("/existe")
+    public boolean existe(@RequestParam String nombre) {
+        return service.existe(nombre);
+    }
+
 }
