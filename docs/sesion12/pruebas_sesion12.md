@@ -30,7 +30,7 @@ Evidencias visuales y salida de ejecución
 ```
 
 ### Captura del repositorio y commit
-
+![alt text](image-3.png)
 
 
 ### Breve explicación del flujo
