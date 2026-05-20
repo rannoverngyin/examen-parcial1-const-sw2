@@ -48,4 +48,11 @@ class ProductoServiceTest {
         assertThrows(IllegalArgumentException.class, () -> service.agregar("   "));
         assertThrows(IllegalArgumentException.class, () -> service.agregar(null));
     }
+
+    @Test
+    @DisplayName("No debe aceptar producto duplicado")
+    void noDebeAceptarProductoDuplicado() {
+    assertThrows(IllegalArgumentException.class, () -> service.agregar("Laptop"));
+}
+
 }
