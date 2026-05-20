@@ -26,11 +26,12 @@ public class ProductoServiceTest {
         assertTrue(service.existe("Laptop"));
         assertTrue(service.existe("Mouse"));
     }
+
     @Test
     @DisplayName("No debe aceptar producto duplicado")
     void noDebeAceptarProductoDuplicado() {
-    assertThrows(IllegalArgumentException.class, () -> service.agregar("Laptop"));
-}
+        assertThrows(IllegalArgumentException.class, () -> service.agregar("Laptop"));
+    }
 
     @Test
     @DisplayName("Debe agregar un producto válido")
