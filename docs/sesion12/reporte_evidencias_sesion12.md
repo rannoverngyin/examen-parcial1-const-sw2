@@ -11,7 +11,7 @@ Documentar las evidencias solicitadas para la sesión 12 de la práctica, dejand
 Insertar aquí la captura de la terminal donde se observe la ejecución completa de las pruebas con resultado final `BUILD SUCCESS`.
 
 ### Archivo sugerido de imagen
-[sesion12-mvn-test-build-success.png](sesion12-mvn-test-build-success.png)
+![mvn test con BUILD SUCCESS](sesion12-mvn-test-build-success.png)
 
 ### Comando ejecutado
 ```bash
@@ -26,7 +26,7 @@ Insertar aquí la captura de la terminal donde se observe la ejecución completa
 Insertar aquí la captura del archivo `ProductoControllerIntegrationTest.java` abierto en el editor.
 
 ### Archivo sugerido de imagen
-[sesion12-producto-controller-integration-test.png](sesion12-producto-controller-integration-test.png)
+![ProductoControllerIntegrationTest](sesion12-producto-controller-integration-test.png)
 
 ### Ubicación del archivo
 [src/test/java/pe/unas/demoapi/test/ProductoControllerIntegrationTest.java](../../src/test/java/pe/unas/demoapi/test/ProductoControllerIntegrationTest.java)
@@ -39,7 +39,7 @@ Insertar aquí la captura del archivo `ProductoControllerIntegrationTest.java` a
 Insertar aquí la captura donde se vea el repositorio con el commit ya realizado y la rama activa correspondiente.
 
 ### Archivo sugerido de imagen
-[sesion12-repo-con-commit.png](sesion12-repo-con-commit.png)
+![Repositorio con commit realizado](sesion12-repo-con-commit.png)
 
 ### Comandos de referencia
 ```bash
