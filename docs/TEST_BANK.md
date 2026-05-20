@@ -18,3 +18,14 @@ ProductoService
 ## Evidencia
 Captura de BUILD SUCCESS y commit en GitHub.
 ![alt text](image-6.png)
+
+## Adicional: Prueba duplicado
+![alt text](image-7.png)
+
+Se agregó una prueba para verificar productos duplicados, por lo cual se decidio modificar el método agregar()
+
+![alt text](image-8.png)
+
+Después de la modificación, se hizo la prueba y dio BUILD SUCESS
+
+![alt text](image-9.png)

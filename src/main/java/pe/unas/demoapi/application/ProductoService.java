@@ -21,8 +21,16 @@ public class ProductoService {
         if (nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre del producto es obligatorio");
         }
-        productos.add(nombre.trim());
+
+        String nombreLimpio = nombre.trim();
+
+        if (productos.contains(nombreLimpio)) {
+            throw new IllegalArgumentException("El producto ya existe");
+        }
+
+        productos.add(nombreLimpio);
     }
+
 
     public void eliminar(String nombre) {
         productos.remove(nombre);
