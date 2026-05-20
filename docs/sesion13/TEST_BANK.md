@@ -1,50 +1,54 @@
-# TEST_BANK - Evidencias de Entrega (Sesión 13)
+# Evidencias de la Sesión 13 - Pruebas Automatizadas
 
-Este documento reúne las evidencias solicitadas para la entrega de la sesión 13. Pegue aquí las capturas correspondientes dentro de la carpeta `docs/sesion13`.
-
----
-
-## Evidencias requeridas
-
-- **Captura de consola con `./mvnw test` y `BUILD SUCCESS`**
-
-  Inserte la captura aquí:
-
-  ![mvn test BUILD SUCCESS](sesion13-mvn-test-build-success.png)
-
-- **Archivo `ProductoServiceTest.java` implementado**
-
-  Archivo de test localizado en: [src/test/java/pe/unas/demoapi/test/ProductoServiceTest.java](../../src/test/java/pe/unas/demoapi/test/ProductoServiceTest.java)
-
-  Inserte una captura del archivo abierto en el editor:
-
-  ![ProductoServiceTest](sesion13-producto-service-test.png)
-
-- **Archivo `TEST_BANK.md` actualizado** (este archivo)
-
-- **Workflow `.github/workflows/tests.yml` creado**
-
-  Archivo de workflow localizado en: [.github/workflows/tests.yml](../../.github/workflows/tests.yml)
-
-  Inserte una captura del archivo workflow o de la ejecución en Actions:
-
-  ![Workflow tests.yml run](sesion13-workflow-tests-run.png)
-
-- **Commit y push en rama `feature/...`**
-
-  Inserte captura donde se vea el commit y la rama (por ejemplo, la página del commit o `git log`):
-
-  ![Commit en rama feature](sesion13-commit-feature.png)
-
-- **Pull Request creado en GitHub**
-
-  Inserte captura de la página del Pull Request con los checks verdes:
-
-  ![Pull Request con checks](sesion13-pr-checks.png)
+Este documento contiene las pruebas y evidencias que demuestran que todo funciona correctamente en el proyecto. Aquí encontrarás capturas de pantalla de cada paso importante.
 
 ---
 
-## Notas
+## Lo que hicimos y probamos
 
-- Pegue las imágenes dentro de `docs/sesion13` con los nombres sugeridos arriba.
-- Si desea que yo nombre o reubique las imágenes, dímelo y lo hago.
+### 1️⃣ Ejecutamos todas las pruebas y salieron bien
+
+Aquí está la pantalla donde pedimos que ejecuten las pruebas y todo pasó sin errores:
+
+![mvn test BUILD SUCCESS](sesion13-mvn-test-build-success.png)
+
+### 2️⃣ Creamos el archivo de pruebas para el servicio
+
+Este es el archivo donde escribimos todas las pruebas para verificar que el servicio funciona correctamente:
+
+📂 Ubicación: [src/test/java/pe/unas/demoapi/test/ProductoServiceTest.java](../../src/test/java/pe/unas/demoapi/test/ProductoServiceTest.java)
+
+![ProductoServiceTest](sesion13-producto-service-test.png)
+
+### 3️⃣ Configuramos las pruebas automáticas en GitHub
+
+Esta es la configuración que hace que las pruebas se ejecuten automáticamente cada vez que compartimos código:
+
+📂 Ubicación: [.github/workflows/tests.yml](../../.github/workflows/tests.yml)
+
+![Workflow tests.yml file](sesion13-workflow-file.png)
+
+### 4️⃣ Compartimos el código en una rama nueva
+
+Aquí vemos el cambio guardado en Git en mi rama `feature/sesion13-banco-pruebas_evaristo`:
+
+![Commit en rama feature](sesion13-commit-feature.png)
+
+### 5️⃣ Abrimos la solicitud para fusionar el código
+
+Mi solicitud de fusión en GitHub (#30) está lista con todos los checks pasados:
+
+✅ **Todos los checks pasaron correctamente** (2 successful checks)  
+✅ **Sin conflictos con la rama principal**  
+✅ **Listo para fusionar**
+
+![Pull Request con checks](sesion13-pr-review-checks.png)
+
+---
+
+## Resumen
+
+✅ Las pruebas pasan correctamente  
+✅ El código está guardado en una rama con los cambios  
+✅ Las pruebas se ejecutan automáticamente en GitHub  
+✅ Todo está listo para fusionar en la rama principal
