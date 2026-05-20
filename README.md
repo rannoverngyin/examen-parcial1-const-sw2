@@ -106,3 +106,18 @@ En GitHub → Compare & Pull Request
 
 ## Tiempo del examen
 10 minutos
+
+## Evidencia de pruebas de integración REST
+
+Se ejecutaron pruebas de integración para servicios REST usando Spring Boot, MockMvc y Maven.
+
+### Explicación del flujo MockMvc → Controller → Service
+
+MockMvc simula una petición HTTP dentro del entorno de pruebas de Spring Boot, sin necesidad de levantar manualmente un servidor externo. La prueba envía solicitudes como GET, POST o DELETE hacia los endpoints REST definidos en el controlador.
+
+Luego, el Controller recibe la petición, procesa los parámetros enviados y llama a los métodos correspondientes del Service. En este caso, ProductoController delega la lógica a ProductoService.
+
+ProductoService ejecuta la lógica de aplicación, como listar productos, agregar un producto, eliminarlo, contar el total o verificar su existencia. Finalmente, la respuesta vuelve al Controller y la prueba valida el código de estado, el contenido textual o la respuesta JSON.
+
+De esta manera, se comprueba que la capa Presentation y la capa Application trabajan correctamente de forma integrada.
+
