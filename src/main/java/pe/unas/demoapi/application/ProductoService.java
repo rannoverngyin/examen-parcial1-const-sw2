@@ -1,27 +1,35 @@
 package pe.unas.demoapi.application;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductoService  {
-    private final List<String>productos = new CopyOnWriteArrayList<>();
-    public ProductoService(){
-        productos.add("laptop");
-        productos.add("teclado");
+public class ProductoService {
+    private final List<String> productos = new ArrayList<>();
+
+    public ProductoService() {
+        productos.add("Laptop");
+        productos.add("Mouse");
     }
-    public List<String>listar(){
+
+    public List<String> listar() {
         return productos;
     }
-    public void agregar(String nombre){
+
+    public void agregar(String nombre) {
         productos.add(nombre);
     }
-    public void eliminar(String nombre){
+
+    public void eliminar(String nombre) {
         productos.remove(nombre);
     }
+
     public int total(){
         return productos.size();
+    }
+
+    public boolean exixte(String nombre){
+        return productos.contains(nombre);
     }
 }

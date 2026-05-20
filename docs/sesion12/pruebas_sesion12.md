@@ -1,45 +1,38 @@
-# Reporte de Evidencias - Sesion 11
+Evidencias visuales y salida de ejecución
 
-## 1. Objetivo
-Validar el comportamiento del modulo de productos en tres niveles:
-1. Integracion de endpoints REST.
-2. Concurrencia en la capa de servicio.
-3. Concurrencia por llamadas HTTP al API.
+### Capturas 
 
-## 2. Contexto del problema encontrado
-Durante la sesion se detecto que varias pruebas fallaban porque el endpoint /productos no estaba expuesto por un controlador.
+- ProductoControllerIntegrationTest (terminal con tests):
 
-Efecto observado:
-1. Las pruebas de integracion y API devolvian error por ruta no encontrada.
-2. La prueba de servicio no dependia del controlador y podia pasar por separado.
+![tests terminal](image.png)
 
-## 3. Correcciones aplicadas
-Se realizaron ajustes para alinear implementacion y pruebas:
-1. Se implemento ProductoController con endpoints:
-    - GET /productos para listar productos.
-    - POST /productos?nombre=... para agregar un producto.
-2. Se normalizaron textos y rutas en pruebas para que coincidan con el contrato del API.
+- Resultado con test adicional (`existe`):
 
-## 4. Evidencias visuales de ejecucion
-### 4.1 ProductoControllerIntegrationTest
-![Resultado ProductoControllerIntegrationTest](image-1.png)
+![tests terminal 2](image-1.png)
 
-### 4.2 ProductoServiceConcurrencyTest
-![Resultado ProductoServiceConcurrencyTest](image-2.png)
+- Prueba manual del endpoint `/productos/existe` (Postman/HTTP client):
 
-### 4.3 ProductoApiConcurrencyTest
-![Resultado ProductoApiConcurrencyTest](image-3.png)
+![postman existe](image-2.png)
 
-### 4.4 Ejecucion completa de pruebas
-![Resultado de toda la suite](image-4.png)
+```
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.378 s
+[INFO] Finished at: 2026-05-20T16:21:49-05:00
+[INFO] ------------------------------------------------------------------------
+```
 
-### 4.5 Verificacion manual de endpoint /productos
-![Captura endpoint productos](image-5.png)
+### Captura del repositorio y commit
 
-## 5. Resultado final
-Estado final de la suite:
-1. Tests run: 5
-2. Failures: 0
-3. Errors: 0
-4. Skipped: 0
 
+
+### Breve explicación del flujo
+MockMvc simula peticiones HTTP hacia `ProductoController`, el cual delega la lógica en `ProductoService`. Las pruebas validan respuestas HTTP (status), contenido (JSON o texto) y cambios en la lista de productos.
+---
