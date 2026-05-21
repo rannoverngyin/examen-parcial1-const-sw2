@@ -46,9 +46,45 @@ Mi solicitud de fusión en GitHub (#30) está lista con todos los checks pasados
 
 ---
 
+## Banco de pruebas – Sesión 13
+
+### Módulo evaluado
+ProductoService
+
+### Casos de prueba
+
+| ID | Caso de prueba | Prioridad | Resultado esperado | Resultado actual |
+|----|----------------|-----------|--------------------|------------------|
+| PU-01 | Listar productos iniciales | Alta | Retorna Laptop y Mouse | ✅ EXITOSO |
+| PU-02 | Agregar producto válido | Alta | Incrementa total y producto existe | ✅ EXITOSO |
+| PU-03 | Eliminar producto existente | Media | Reduce total y producto ya no existe | ✅ EXITOSO |
+| PU-04 | Rechazar producto vacío | Alta | Lanza IllegalArgumentException | ✅ EXITOSO |
+
+### Comando de ejecución
+```bash
+./mvnw test -Dtest=ProductoServiceTest
+```
+
+### Resultados de ejecución
+
+```
+[INFO] Running pe.unas.demoapi.test.ProductoServiceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s -- in pe.unas.demoapi.test.ProductoServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] BUILD SUCCESS
+[INFO] Total time:  2.056 s
+[INFO] Finished at: 2026-05-20T23:01:39-05:00
+```
+
+---
+
 ## Resumen
 
 ✅ Las pruebas pasan correctamente  
 ✅ El código está guardado en una rama con los cambios  
 ✅ Las pruebas se ejecutan automáticamente en GitHub  
 ✅ Todo está listo para fusionar en la rama principal
+✅ Banco de pruebas completado con evidencia de BUILD SUCCESS
