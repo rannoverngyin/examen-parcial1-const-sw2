@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pe.unas.demoapi.application.ProductoServiceTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 s -- in pe.unas.demoapi.application.ProductoServiceTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.258 s -- in pe.unas.demoapi.application.ProductoServiceTest

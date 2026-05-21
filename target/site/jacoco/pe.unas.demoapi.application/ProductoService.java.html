@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductoService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demoapi</a> &gt; <a href="index.source.html" class="el_package">pe.unas.demoapi.application</a> &gt; <span class="el_source">ProductoService.java</span></div><h1>ProductoService.java</h1><pre class="source lang-java linenums">package pe.unas.demoapi.application;
+
+import org.springframework.stereotype.Service;
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class ProductoService {
+
+<span class="fc" id="L10">    private final List&lt;String&gt; productos = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L12">    public ProductoService() {</span>
+<span class="fc" id="L13">        productos.add(&quot;Laptop&quot;);</span>
+<span class="fc" id="L14">        productos.add(&quot;Mouse&quot;);</span>
+<span class="fc" id="L15">    }</span>
+
+    public List&lt;String&gt; listar() {
+<span class="fc" id="L18">        return productos;</span>
+    }
+
+    public void agregar(String nombre) {
+
+<span class="fc bfc" id="L23" title="All 4 branches covered.">        if (nombre == null || nombre.isBlank()) {</span>
+<span class="fc" id="L24">            throw new IllegalArgumentException(</span>
+                &quot;El nombre del producto es obligatorio&quot;
+            );
+        }
+
+<span class="fc" id="L29">        String nombreLimpio = nombre.trim();</span>
+
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (productos.contains(nombreLimpio)) {</span>
+<span class="fc" id="L32">            throw new IllegalArgumentException(</span>
+                &quot;El producto ya existe&quot;
+            );
+        }
+
+<span class="fc" id="L37">        productos.add(nombreLimpio);</span>
+<span class="fc" id="L38">    }</span>
+
+    public void eliminar(String nombre) {
+<span class="fc" id="L41">        productos.remove(nombre);</span>
+<span class="fc" id="L42">    }</span>
+
+    public int total() {
+<span class="fc" id="L45">        return productos.size();</span>
+    }
+
+    public boolean existe(String nombre) {
+<span class="fc" id="L49">        return productos.contains(nombre);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

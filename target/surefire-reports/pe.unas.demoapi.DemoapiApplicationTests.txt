@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pe.unas.demoapi.DemoapiApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.012 s -- in pe.unas.demoapi.DemoapiApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.364 s -- in pe.unas.demoapi.DemoapiApplicationTests
