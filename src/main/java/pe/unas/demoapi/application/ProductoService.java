@@ -1,11 +1,13 @@
 package pe.unas.demoapi.application;
 
-import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 @Service
 public class ProductoService {
+
     private final List<String> productos = new ArrayList<>();
 
     public ProductoService() {
@@ -21,7 +23,14 @@ public class ProductoService {
         if (nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre del producto es obligatorio");
         }
-        productos.add(nombre.trim());
+
+        String nombreLimpio = nombre.trim();
+
+        if (productos.contains(nombreLimpio)) {
+            throw new IllegalArgumentException("El producto ya existe");
+        }
+
+        productos.add(nombreLimpio);
     }
 
     public void eliminar(String nombre) {
