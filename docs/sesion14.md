@@ -4,7 +4,7 @@
 
 ### 1. Pruebas Agregadas en el Editor
 *Las capturas de las pruebas unitarias y el método `esAceptable` implementados en el IDE se encuentran adjuntas en la carpeta de documentación:*
-* `![Pruebas en el Editor](docs/reporteJaCoCo-1.png)` *(O cambia al nombre de la captura de tu código si tienes una específica)*
+* `![Pruebas en el Editor](docs/reporteJaCoCo-1.png)`
 
 ### 2. Reporte de Cobertura Interactiva (`target/site/jacoco/index.html`)
 *Validación visual del porcentaje de líneas y ramas cubiertas por el banco de pruebas tras las modificaciones:*
