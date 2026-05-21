@@ -17,6 +17,8 @@ ProductoService
 | PU-05 | Rechazar producto duplicado | Alta | Lanza IllegalArgumentException |
 
 ---
+## Captura de consola con ./mvnw test y BUILD SUCCESS.
+![alt text](image.png)
 
 ## Comando de ejecución
 
