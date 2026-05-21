@@ -1,0 +1,136 @@
+PS C:\UNAS\2026-I\CONSTRUCCION_SOFTWARE_II\CLASESPRACTICAS\demoapi> mvn test
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< pe.unas:demoapi >---------------------------
+[INFO] Building demoapi 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ demoapi ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ demoapi ---
+[INFO] Changes detected - recompiling the module! :input tree
+[INFO] Compiling 3 source files with javac [debug release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ demoapi ---
+[INFO] skip non existing resourceDirectory C:\UNAS\2026-I\CONSTRUCCION_SOFTWARE_II\CLASESPRACTICAS\demoapi\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ demoapi ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ demoapi ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running pe.unas.demoapi.presentation.ProductoControllerIntegrationTest
+08:31:44.826 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [pe.unas.demoapi.presentation.ProductoControllerIntegrationTest]: ProductoControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:31:44.968 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration pe.unas.demoapi.DemoapiApplication for test class pe.unas.demoapi.presentation.ProductoControllerIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-05-21T08:31:45.442-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 17.0.18 with PID 10536 (started by contr in C:\UNAS\2026-I\CONSTRUCCION_SOFTWARE_II\CLASESPRACTICAS\demoapi)
+2026-05-21T08:31:45.445-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-05-21T08:31:46.713-05:00  INFO 10536 --- [demoapi] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-05-21T08:31:46.713-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-05-21T08:31:46.715-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-05-21T08:31:46.743-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 1.625 seconds (process running for 2.615)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-05-21T08:31:47.811-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 17.0.18 with PID 10536 (started by contr in C:\UNAS\2026-I\CONSTRUCCION_SOFTWARE_II\CLASESPRACTICAS\demoapi)
+2026-05-21T08:31:47.812-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-05-21T08:31:48.020-05:00  INFO 10536 --- [demoapi] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-05-21T08:31:48.021-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-05-21T08:31:48.021-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-05-21T08:31:48.025-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 0.234 seconds (process running for 3.897)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-05-21T08:31:48.134-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 17.0.18 with PID 10536 (started by contr in C:\UNAS\2026-I\CONSTRUCCION_SOFTWARE_II\CLASESPRACTICAS\demoapi)
+2026-05-21T08:31:48.134-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-05-21T08:31:48.319-05:00  INFO 10536 --- [demoapi] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-05-21T08:31:48.320-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-05-21T08:31:48.320-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-05-21T08:31:48.326-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 0.209 seconds (process running for 4.198)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-05-21T08:31:48.360-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 17.0.18 with PID 10536 (started by contr in C:\UNAS\2026-I\CONSTRUCCION_SOFTWARE_II\CLASESPRACTICAS\demoapi)
+2026-05-21T08:31:48.360-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-05-21T08:31:48.529-05:00  INFO 10536 --- [demoapi] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-05-21T08:31:48.529-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-05-21T08:31:48.529-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-05-21T08:31:48.534-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 0.193 seconds (process running for 4.405)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-05-21T08:31:48.565-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 17.0.18 with PID 10536 (started by contr in C:\UNAS\2026-I\CONSTRUCCION_SOFTWARE_II\CLASESPRACTICAS\demoapi)
+2026-05-21T08:31:48.565-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-05-21T08:31:48.722-05:00  INFO 10536 --- [demoapi] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-05-21T08:31:48.723-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-05-21T08:31:48.723-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-05-21T08:31:48.727-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 0.182 seconds (process running for 4.599)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-05-21T08:31:48.753-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 17.0.18 with PID 10536 (started by contr in C:\UNAS\2026-I\CONSTRUCCION_SOFTWARE_II\CLASESPRACTICAS\demoapi)
+2026-05-21T08:31:48.753-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-05-21T08:31:48.904-05:00  INFO 10536 --- [demoapi] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-05-21T08:31:48.904-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-05-21T08:31:48.904-05:00  INFO 10536 --- [demoapi] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-05-21T08:31:48.909-05:00  INFO 10536 --- [demoapi] [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 0.173 seconds (process running for 4.781)
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.255 s -- in pe.unas.demoapi.presentation.ProductoControllerIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.834 s
+[INFO] Finished at: 2026-05-21T08:31:49-05:00
+[INFO] ------------------------------------------------------------------------
+PS C:\UNAS\2026-I\CONSTRUCCION_SOFTWARE_II\CLASESPRACTICAS\demoapi> 
