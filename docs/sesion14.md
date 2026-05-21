@@ -1,25 +1,27 @@
 # Reporte de Evidencias - Sesión 14
 
-## Evidencias del Laboratorio
+## Evidencias del Laboratorio (Capturas de Pantalla)
 
-### A. Control de Calidad y Cobertura (JaCoCo)
-A continuación se presentan las capturas del reporte interactivo generado por JaCoCo, donde se valida que el código cumple con las reglas de negocio y los caminos alternativos probados.
+### 1. Pruebas Agregadas en el Editor
+*Las capturas de las pruebas unitarias y el método `esAceptable` implementados en el IDE se encuentran adjuntas en la carpeta de documentación:*
+* `![Pruebas en el Editor](docs/reporteJaCoCo-1.png)` *(O cambia al nombre de la captura de tu código si tienes una específica)*
 
-| Descripción del Reporte | Captura de Pantalla |
-| :--- | :--- |
-| **Reporte Inicial:** Cobertura de caminos principales en `CalidadService`. | `![Reporte JaCoCo 1](docs/reporteJaCoCo-1.png)` |
-| **Reporte Final:** Cobertura incremental con el método `esAceptable`. | `![Reporte JaCoCo 2](docs/reporteJaCoCo-2.png)` |
-| **Umbral Mínimo:** Validación de la regla del 70% configurada en el `pom.xml`. | `![Umbral Mínimo Cobertura](docs/umbral-minimo-cobertura.png)` |
+### 2. Reporte de Cobertura Interactiva (`target/site/jacoco/index.html`)
+*Validación visual del porcentaje de líneas y ramas cubiertas por el banco de pruebas tras las modificaciones:*
+* `![Reporte JaCoCo Final](docs/reporteJaCoCo-2.png)`
+
+### 3. Validación del Umbral Mínimo de Cobertura (`pom.xml`)
+*Configuración de la regla de control de calidad para asegurar un piso mínimo del 70%:*
+* `![Umbral Mínimo Cobertura](docs/umbral-minimo-cobertura.png)`
 
 ---
 
-### B. Ejecución de Pruebas en Consola (`BUILD SUCCESS`)
-Ejecución del comando `./mvnw clean test`. Este proceso compila el proyecto de manera limpia, ejecuta la totalidad de las pruebas unitarias e integradas, y valida el umbral de cobertura automatizado antes del empaquetado:
+## Ejecución de Pruebas en Consola (`BUILD SUCCESS`)
+
+Ejecución exitosa del comando `./mvnw clean test` que demuestra que el proyecto compila de manera limpia, pasa todos los tests y supera la regla del umbral de JaCoCo:
 
 ```bash
 [INFO] Scanning for projects...
-[INFO] 
-[INFO] --- maven-clean-plugin:3.3.2:clean (default-clean) @ examen-parcial1-const-sw2 ---
 [INFO] 
 [INFO] --- jacoco-maven-plugin:0.8.12:prepare-agent (default) @ examen-parcial1-const-sw2 ---
 [INFO] argLine set to -javaagent:C:\\Users\\...\\jacoco.exec
