@@ -1,12 +1,12 @@
 package pe.unas.demoapi.application;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductoService {
-    private final List<String> productos = new ArrayList<>();
+    private final List<String> productos = new CopyOnWriteArrayList<>();
 
     public ProductoService() {
         productos.add("Laptop");
@@ -17,7 +17,7 @@ public class ProductoService {
         return productos;
     }
 
-    public void agregar(String nombre) {
+    public synchronized void agregar(String nombre) {
         if (nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre del producto es obligatorio");
         }
@@ -30,15 +30,15 @@ public class ProductoService {
         productos.add(nombreLimpio);
     }
 
-    public void eliminar(String nombre) {
+    public synchronized void eliminar(String nombre) {
         productos.remove(nombre);
     }
 
-    public int total(){
+    public synchronized int total(){
         return productos.size();
     }
 
-    public boolean existe(String nombre){
+    public synchronized boolean existe(String nombre){
         return productos.contains(nombre);
     }
 }
