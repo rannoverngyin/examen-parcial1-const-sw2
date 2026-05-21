@@ -1,0 +1,10 @@
+Latest commits:
+
+4295285 (HEAD -> feature/garcia_jorge, origin/feature/garcia_jorge) Agregar endpoint GET /productos/existe y prueba de integración de existencia de producto
+cd9207b Add ProductoControllerIntegrationTest using MockMvc for GET/POST/DELETE and JSON validation
+
+Current HEAD metadata:
+Commit: 4295285eea77e1c981ad53c45c5d0463853a6882
+Author: Garcia
+Date: Wed May 20 13:13:54 2026 -0500
+Message: Agregar endpoint GET /productos/existe y prueba de integración de existencia de producto
