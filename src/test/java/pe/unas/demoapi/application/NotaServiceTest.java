@@ -1,8 +1,6 @@
-package pe.unas.demoapi;
+package pe.unas.demoapi.application;
 
 import org.junit.jupiter.api.Test;
-import pe.unas.demoapi.application.NotaService;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class NotaServiceTest {

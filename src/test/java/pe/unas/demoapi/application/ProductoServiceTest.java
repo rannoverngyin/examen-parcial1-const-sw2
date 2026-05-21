@@ -1,10 +1,8 @@
-package pe.unas.demoapi;
+package pe.unas.demoapi.application;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import pe.unas.demoapi.application.ProductoService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
