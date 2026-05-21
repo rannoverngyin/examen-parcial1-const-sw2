@@ -65,16 +65,18 @@ Resultado general
 Cobertura total de instrucciones:95%
 Cobertura total de ramas: 88%
 
-![alt text](image-20.png)
 
-muy buena calidad de pruebas.
 ProductoService alcanzó 100% de cobertura tanto en instrucciones como en ramas, por lo que todos sus métodos y condiciones fueron ejecutados correctamente por las pruebas.
 NotaService también tiene 100% de instrucciones, aunque solo 83% de ramas, lo que significa que aún existen algunas condiciones lógicas que no fueron probadas completamente.
 CalidadService presenta la menor cobertura del paquete, con 88% de instrucciones y 85% de ramas. Esto indica que algunas líneas o decisiones todavía no fueron cubiertas por pruebas unitarias.
-
-![alt text](image-21.png)
+Se aumentó las pruebas de CalculadoraService,muestra una cobertura de 100% por lo que todos sus métodos y condiciones fueron ejecutados correctamente por las pruebas.
+![alt text](image-20.png)
+![alt text](image-22.png)
 
 El paquete tiene 100% de cobertura en instrucciones.
 ProductoController fue completamente probado, ya que todas sus líneas y métodos fueron ejecutados durante las pruebas.
 No aparecen ramas (n/a) porque probablemente el controlador no contiene estructuras condicionales complejas (if, switch, etc.).
 Esto demuestra que las pruebas de integración o controlador validaron correctamente todos los endpoints implementados.
+![alt text](image-21.png)
+
+
