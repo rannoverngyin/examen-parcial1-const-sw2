@@ -25,7 +25,7 @@ BUILD SUCCESS
 ![alt text](image-2.png)
 ![alt text](image-3.png)
 - Captura del commit en GitHub
-
+![alt text](image-4.png)
 ---
 
 ## Flujo
