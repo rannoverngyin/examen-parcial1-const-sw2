@@ -8,5 +8,5 @@
 
 ## 1. Resumen Ejecutivo de la Ejecución
 El ciclo de pruebas unitarias y de integración junto con el análisis estático de código se completó de manera exitosa en el entorno local. Se ejecutó el pipeline completo mediante el comando:
-```bash
+
 ./mvnw clean verify sonar:sonar

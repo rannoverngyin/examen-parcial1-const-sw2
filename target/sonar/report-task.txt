@@ -1,6 +1,0 @@
-projectKey=pe.unas:demoapi
-serverUrl=http://localhost:9000
-serverVersion=26.5.0.122743
-dashboardUrl=http://localhost:9000/dashboard?id=pe.unas%3Ademoapi
-ceTaskId=afe0ab1d-87dc-4421-9827-37cfaeef0e38
-ceTaskUrl=http://localhost:9000/api/ce/task?id=afe0ab1d-87dc-4421-9827-37cfaeef0e38
