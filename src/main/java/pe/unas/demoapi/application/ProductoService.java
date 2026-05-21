@@ -13,11 +13,11 @@ public class ProductoService {
         productos.add("Mouse");
     }
 
-    public List<String> listar() {
-        return productos;
+    public synchronized List<String> listar() {
+        return new ArrayList<>(productos);
     }
 
-    public void agregar(String nombre) {
+public synchronized void agregar(String nombre) {
     if (nombre == null || nombre.isBlank()) {
         throw new IllegalArgumentException("El nombre del producto es obligatorio");
     }
@@ -32,15 +32,15 @@ public class ProductoService {
 }
 
 
-    public void eliminar(String nombre) {
+    public synchronized void eliminar(String nombre) {
         productos.remove(nombre);
     }
 
-    public int total() {
+    public synchronized int total() {
         return productos.size();
     }
 
-    public boolean existe(String nombre) {
+    public synchronized boolean existe(String nombre) {
         return productos.contains(nombre);
     }
 
