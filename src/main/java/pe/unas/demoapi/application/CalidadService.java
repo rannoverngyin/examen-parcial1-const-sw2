@@ -17,4 +17,11 @@ public class CalidadService {
         }
         return "BAJA";
     }
+
+    public boolean esAceptable(int porcentaje) {
+        if (porcentaje < 0 || porcentaje > 100) {
+            throw new IllegalArgumentException("Cobertura inválida");
+        }
+        return porcentaje >= 70;
+    }
 }

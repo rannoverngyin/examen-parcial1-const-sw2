@@ -35,4 +35,19 @@ class CalidadServiceTest {
         assertThrows(IllegalArgumentException.class,
                 () -> service.clasificarCobertura(101));
     }
+
+    @Test
+    void esAceptableConSetenta() {
+        assertTrue(service.esAceptable(70));
+    }
+
+    @Test
+    void esAceptableConNoventa() {
+        assertTrue(service.esAceptable(90));
+    }
+
+    @Test
+    void noEsAceptableConCuarenta() {
+        assertFalse(service.esAceptable(40));
+    }
 }
