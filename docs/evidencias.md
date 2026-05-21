@@ -41,5 +41,8 @@ Todas las pruebas (incluida la del ejercicio propuesto) pasaron satisfactoriamen
 - Captura del historial y commit realizado en el repositorio Git:
   ![Evidencia git y commit](captura-git-commit.png)
 
+- Captura de la implementación y prueba del método `existe` (Reto 9):
+  ![Evidencia funcion existe](captura-funcion-existe.png)
+
 ## Explicación del Flujo: MockMvc → Controller → Service
 En las pruebas de integración, **MockMvc** se encarga de interceptar y simular las peticiones HTTP que haría un cliente real (navegador, Postman, etc.). Esta petición simulada llega directamente a la capa de presentación (**Controller**), quien procesa la ruta y los parámetros. El Controller, a su vez, delega la operación a la capa de negocio (**Service**). El framework ejecuta todo el flujo de ida y de retorno sin necesidad de arrancar por completo el servidor Tomcat, permitiendo una prueba extremadamente rápida pero altamente fiel a la realidad de la aplicación.
