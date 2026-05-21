@@ -61,4 +61,11 @@ public class ProductoControllerIntegrationTest {
 
     }
 
+    @Test
+    void agregarProducto_rechazaNombreVacio_debeRetornar400() throws Exception {
+        mockMvc.perform(post("/productos").param("nombre", ""))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("El nombre del producto es obligatorio"));
+    }
+
 }

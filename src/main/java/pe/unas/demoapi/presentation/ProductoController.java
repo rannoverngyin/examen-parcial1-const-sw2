@@ -43,6 +43,6 @@ public class ProductoController {
     }
     @GetMapping("/existe")
     public boolean existe(@RequestParam String nombre) {
-        return service.exixte(nombre);
+        return service.existe(nombre);
     }
 }

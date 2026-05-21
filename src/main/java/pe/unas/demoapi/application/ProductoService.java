@@ -18,7 +18,16 @@ public class ProductoService {
     }
 
     public void agregar(String nombre) {
-        productos.add(nombre);
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre del producto es obligatorio");
+        }
+
+        String nombreLimpio = nombre.trim();
+
+        if (productos.contains(nombreLimpio)) {
+            throw new IllegalArgumentException("El producto ya existe");
+        }
+        productos.add(nombreLimpio);
     }
 
     public void eliminar(String nombre) {
@@ -29,7 +38,7 @@ public class ProductoService {
         return productos.size();
     }
 
-    public boolean exixte(String nombre){
+    public boolean existe(String nombre){
         return productos.contains(nombre);
     }
 }
