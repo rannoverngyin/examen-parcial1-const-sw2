@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="pe.unas.demoapi.presentation.ProductoControllerIntegrationTest" time="6.316" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="pe.unas.demoapi.ProductoControllerIntegrationTest" time="0.162" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -9,6 +9,7 @@
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="catalina.useNaming" value="false"/>
     <property name="user.timezone" value="America/Lima"/>
     <property name="os.name" value="Windows 11"/>
     <property name="java.vm.specification.version" value="24"/>
@@ -46,6 +47,7 @@
     <property name="localRepository" value="C:\Users\Anali\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\Anali\AppData\Local\Temp\"/>
+    <property name="catalina.home" value="C:\Users\Anali\AppData\Local\Temp\tomcat.0.8902207100108808636"/>
     <property name="java.version" value="24.0.2"/>
     <property name="user.dir" value="C:\Users\Anali\Downloads\Construcción de Sw II\practica12"/>
     <property name="os.arch" value="amd64"/>
@@ -53,6 +55,7 @@
     <property name="PID" value="8584"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="catalina.base" value="C:\Users\Anali\AppData\Local\Temp\tomcat.0.8902207100108808636"/>
     <property name="native.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk-24\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/Anali/.gemini/antigravity/bin;C:\Users\Anali\AppData\Roaming\Antigravity\bin;C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\php;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Archivos de programa\7-Zip\;C:\Archivos de programa\PostgreSQL\17\bin;C:\Program Files\Java\jdk-24\bin;C:\WINDOWS\ADMT;C:\SQLite;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Anali\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\Anali\AppData\Local\Programs\Python\Python312\;C:\Users\Anali\AppData\Local\Microsoft\WindowsApps;C:\Users\Anali\AppData\Roaming\npm;C:\Users\Anali\.dotnet\tools;C:\Users\Anali\AppData\Local\Microsoft\WinGet\Packages\Ngrok.Ngrok_Microsoft.Winget.Source_8wekyb3d8bbwe;C:\Users\Anali\sqlite-tools-win-x64-3500400;C:\Users\Anali\AppData\Local\Microsoft\WinGet\Packages\Cloudflare.cloudflared_Microsoft.Winget.Source_8wekyb3d8bbwe;C:\Users\Anali\AppData\Local\Programs\Antigravity\bin;C:\Program Files\Apache\Maven\apache-maven-3.9.14\bin;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
@@ -62,96 +65,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="totalProductos_debeRetornarCantidadInicial" classname="pe.unas.demoapi.presentation.ProductoControllerIntegrationTest" time="0.487">
-    <system-out><![CDATA[2026-05-21T08:24:33.517-05:00  INFO 8584 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [pe.unas.demoapi.presentation.ProductoControllerIntegrationTest]: ProductoControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-05-21T08:24:33.642-05:00  INFO 8584 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration pe.unas.demoapi.DemoapiApplication for test class pe.unas.demoapi.presentation.ProductoControllerIntegrationTest
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.5)
-
-2026-05-21T08:24:33.728-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 24.0.2 with PID 8584 (started by Anali in C:\Users\Anali\Downloads\Construcción de Sw II\practica12)
-2026-05-21T08:24:33.732-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2026-05-21T08:24:34.724-05:00  INFO 8584 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-05-21T08:24:34.724-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-05-21T08:24:34.729-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
-2026-05-21T08:24:34.750-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 1.093 seconds (process running for 12.069)
+  <testcase name="listarProductos_debeResponderOk" classname="pe.unas.demoapi.ProductoControllerIntegrationTest" time="0.067">
+    <system-out><![CDATA[2026-05-21T08:24:43.747-05:00  INFO 8584 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [pe.unas.demoapi.ProductoControllerIntegrationTest]: ProductoControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-05-21T08:24:43.760-05:00  INFO 8584 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration pe.unas.demoapi.DemoapiApplication for test class pe.unas.demoapi.ProductoControllerIntegrationTest
 ]]></system-out>
   </testcase>
-  <testcase name="eliminarProducto_debeRetirarProductoDeLaLista" classname="pe.unas.demoapi.presentation.ProductoControllerIntegrationTest" time="1.008">
-    <system-out><![CDATA[
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.5)
-
-2026-05-21T08:24:35.335-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 24.0.2 with PID 8584 (started by Anali in C:\Users\Anali\Downloads\Construcción de Sw II\practica12)
-2026-05-21T08:24:35.335-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2026-05-21T08:24:36.087-05:00  INFO 8584 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-05-21T08:24:36.088-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-05-21T08:24:36.089-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2026-05-21T08:24:36.099-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 0.828 seconds (process running for 13.418)
-]]></system-out>
-  </testcase>
-  <testcase name="agregarProducto_debeRetornarMensajeYActualizarLista" classname="pe.unas.demoapi.presentation.ProductoControllerIntegrationTest" time="0.025">
-    <system-out><![CDATA[
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.5)
-
-2026-05-21T08:24:37.225-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 24.0.2 with PID 8584 (started by Anali in C:\Users\Anali\Downloads\Construcción de Sw II\practica12)
-2026-05-21T08:24:37.225-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2026-05-21T08:24:37.818-05:00  INFO 8584 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-05-21T08:24:37.818-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-05-21T08:24:37.820-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2026-05-21T08:24:37.838-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 0.719 seconds (process running for 15.156)
-]]></system-out>
-  </testcase>
-  <testcase name="listarProductos_debeRetornarStatus200YListaInicial" classname="pe.unas.demoapi.presentation.ProductoControllerIntegrationTest" time="0.071">
-    <system-out><![CDATA[
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.5)
-
-2026-05-21T08:24:37.928-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 24.0.2 with PID 8584 (started by Anali in C:\Users\Anali\Downloads\Construcción de Sw II\practica12)
-2026-05-21T08:24:37.929-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2026-05-21T08:24:38.580-05:00  INFO 8584 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-05-21T08:24:38.582-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-05-21T08:24:38.582-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2026-05-21T08:24:38.617-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 0.742 seconds (process running for 15.935)
-]]></system-out>
-  </testcase>
-  <testcase name="existeProducto_debeRetornarTrueCuandoExiste" classname="pe.unas.demoapi.presentation.ProductoControllerIntegrationTest" time="0.024">
-    <system-out><![CDATA[
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.5)
-
-2026-05-21T08:24:38.751-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Starting ProductoControllerIntegrationTest using Java 24.0.2 with PID 8584 (started by Anali in C:\Users\Anali\Downloads\Construcción de Sw II\practica12)
-2026-05-21T08:24:38.755-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2026-05-21T08:24:39.785-05:00  INFO 8584 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-05-21T08:24:39.786-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-05-21T08:24:39.786-05:00  INFO 8584 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2026-05-21T08:24:39.796-05:00  INFO 8584 --- [           main] .u.d.p.ProductoControllerIntegrationTest : Started ProductoControllerIntegrationTest in 1.098 seconds (process running for 17.114)
-]]></system-out>
-  </testcase>
+  <testcase name="agregarProducto_debeResponderMensajeCorrecto" classname="pe.unas.demoapi.ProductoControllerIntegrationTest" time="0.049"/>
 </testsuite>

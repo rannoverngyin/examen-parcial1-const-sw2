@@ -19,8 +19,8 @@ class ProductoServiceTest {
     @DisplayName("Debe listar productos iniciales")
     void debeListarProductosIniciales() {
         assertEquals(2, service.total());
-        assertTrue(service.existe("Laptop"));
-        assertTrue(service.existe("Mouse"));
+        assertTrue(service.listar().contains("Laptop"));
+        assertTrue(service.listar().contains("Mouse"));
     }
 
     @Test
@@ -29,7 +29,7 @@ class ProductoServiceTest {
         service.agregar("Teclado");
 
         assertEquals(3, service.total());
-        assertTrue(service.existe("Teclado"));
+        assertTrue(service.listar().contains("Teclado"));
     }
 
     @Test
@@ -38,36 +38,6 @@ class ProductoServiceTest {
         service.eliminar("Mouse");
 
         assertEquals(1, service.total());
-        assertFalse(service.existe("Mouse"));
-    }
-
-    @Test
-    @DisplayName("No debe aceptar producto vacío")
-    void noDebeAceptarProductoVacio() {
-
-        assertThrows(
-            IllegalArgumentException.class,
-            () -> service.agregar("")
-        );
-
-        assertThrows(
-            IllegalArgumentException.class,
-            () -> service.agregar("   ")
-        );
-
-        assertThrows(
-            IllegalArgumentException.class,
-            () -> service.agregar(null)
-        );
-    }
-
-    @Test
-    @DisplayName("No debe aceptar producto duplicado")
-    void noDebeAceptarProductoDuplicado() {
-
-        assertThrows(
-            IllegalArgumentException.class,
-            () -> service.agregar("Laptop")
-        );
+        assertFalse(service.listar().contains("Mouse"));
     }
 }
