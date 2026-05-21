@@ -15,29 +15,30 @@ public class ProductoController {
         this.productoService = productoService;
     }
 
-    // GET /productos
     @GetMapping
     public List<String> listar() {
         return productoService.listar();
     }
 
-    // POST /productos?nombre=Teclado
     @PostMapping
     public String agregar(@RequestParam String nombre) {
         productoService.agregar(nombre);
         return "Producto agregado";
     }
 
-    // DELETE /productos?nombre=Mouse
     @DeleteMapping
     public String eliminar(@RequestParam String nombre) {
         productoService.eliminar(nombre);
         return "Producto eliminado";
     }
 
-    // GET /productos/total
     @GetMapping("/total")
     public int total() {
         return productoService.total();
+    }
+
+    @GetMapping("/existe")
+    public boolean existe(@RequestParam String nombre) {
+        return productoService.existe(nombre);
     }
 }
