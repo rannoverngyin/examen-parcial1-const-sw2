@@ -1,7 +1,7 @@
-package pe.unas.demoapi;
+package pe.unas.demoapi11;
 
 import org.junit.jupiter.api.Test;
-import pe.unas.demoapi.application.ProductoService;
+import pe.unas.demoapi11.application.ProductoService;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -15,6 +15,7 @@ class ProductoServiceConcurrencyTest {
     @Test
     void agregarProductosConcurrentemente_debeMantenerConteoCorrecto() throws Exception {
         ProductoService service = new ProductoService();
+
         int inicial = service.total();
         int hilos = 20;
 
@@ -23,6 +24,7 @@ class ProductoServiceConcurrencyTest {
 
         for (int i = 0; i < hilos; i++) {
             int numero = i;
+
             executor.submit(() -> {
                 service.agregar("Producto-" + numero);
                 latch.countDown();

@@ -1,9 +1,10 @@
-package pe.unas.demoapi;
+package pe.unas.demoapi11;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.resttestclient.TestRestTemplate;
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate;
 import org.springframework.http.ResponseEntity;
 
 import java.util.concurrent.CountDownLatch;
@@ -14,9 +15,10 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ProductoApiConcurrencyTest {
+@AutoConfigureTestRestTemplate
 
-    @Autowired
+public class ProductoApiConcurrencyTest {
+        @Autowired
     private TestRestTemplate restTemplate;
 
     @Test
@@ -42,4 +44,5 @@ class ProductoApiConcurrencyTest {
         executor.shutdown();
         assertTrue(terminado);
     }
+
 }
