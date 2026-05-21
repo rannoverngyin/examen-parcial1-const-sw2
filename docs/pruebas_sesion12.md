@@ -1,4 +1,4 @@
-# Reporte de Pruebas - Sesión 11
+# Reporte de Pruebas - Sesión 12
 
 ## Pruebas ejecutadas
 - ProductoControllerIntegrationTest
