@@ -8,31 +8,36 @@ import java.util.List;
 @RequestMapping("/productos")
 public class ProductoController {
 
-    private final ProductoService productoService;
+    private final ProductoService service;
 
-    public ProductoController(ProductoService productoService) {
-        this.productoService = productoService;
+    public ProductoController(ProductoService service) {
+        this.service = service;
     }
 
     @GetMapping
     public List<String> listar() {
-        return productoService.listar();
+        return service.listar();
     }
 
     @PostMapping
     public String agregar(@RequestParam String nombre) {
-        productoService.agregar(nombre);
+        service.agregar(nombre);
         return "Producto agregado";
     }
 
     @DeleteMapping
     public String eliminar(@RequestParam String nombre) {
-        productoService.eliminar(nombre);
+        service.eliminar(nombre);
         return "Producto eliminado";
     }
 
     @GetMapping("/total")
     public int total() {
-        return productoService.total();
+        return service.total();
+    }
+
+    @GetMapping("/existe")
+    public boolean existe(@RequestParam String nombre) {
+        return service.existe(nombre);
     }
 }

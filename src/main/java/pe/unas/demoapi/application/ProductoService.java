@@ -1,12 +1,13 @@
 package pe.unas.demoapi.application;
 
 import org.springframework.stereotype.Service;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 @Service
 public class ProductoService {
-    private final List<String> productos = new CopyOnWriteArrayList<>();
+
+    private final List<String> productos = new ArrayList<>();
 
     public ProductoService() {
         productos.add("Laptop");
@@ -27,5 +28,9 @@ public class ProductoService {
 
     public int total() {
         return productos.size();
+    }
+
+    public boolean existe(String nombre) {
+        return productos.contains(nombre);
     }
 }
