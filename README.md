@@ -1,108 +1,132 @@
-# Examen Parcial 1 – Construcción de Software II
+# Guía de práctica – Sesión 14
+## Cobertura de código y calidad
 
-## Universidad Nacional Agraria de la Selva
-## Facultad de Ingeniería en Informática y Sistemas
+Curso: Construcción de Software II  
+Stack: Java + Spring Boot + JUnit 5 + JaCoCo + SonarQube/SonarCloud  
+Producto: Reporte de cobertura JaCoCo + pruebas mejoradas + commit en Git  
+Duración: 60 minutos
 
----
+## 1) Objetivo de la práctica
+Evaluar la calidad del banco de pruebas mediante cobertura de código, identificar zonas no cubiertas y mejorar pruebas unitarias/integrales en una aplicación Spring Boot.
 
-## Objetivo
+Al finalizar se debe:
+- generar reporte de cobertura con JaCoCo,
+- interpretar resultados,
+- registrar avance con Git.
 
-Implementar un microservicio aplicando:
+## 2) Requisitos previos
+- Java 17 activo.
+- Maven operativo (`mvn -version` o `./mvnw -version`).
+- Proyecto Spring Boot con `spring-boot-starter-test`.
+- Pruebas previas del curso.
+- Git configurado.
 
-- Java 17
-- Spring Boot
-- Clean Architecture
-- Git + GitHub
+## 3) Fundamento breve
+La cobertura indica qué parte del código ejecutan las pruebas.
 
----
+Métricas relevantes:
+- **Instruction coverage**: instrucciones ejecutadas.
+- **Branch coverage**: decisiones (`if/else`, `switch`, excepciones).
+- **Line coverage**: líneas ejecutadas.
+- **Method coverage**: métodos invocados.
 
-## Instrucciones para el estudiante
+Idea clave: cobertura alta ayuda, pero debe acompañarse de pruebas de calidad (no solo caminos felices).
 
-### 1. Clonar el repositorio
+## 4) Preparación inicial
+1. Ubicarte en la raíz del proyecto.
+2. Verificar que existan `pom.xml`, `src/`, `mvnw`, `mvnw.cmd`.
+3. Confirmar dependencia de test en `pom.xml`:
+   - `org.springframework.boot:spring-boot-starter-test` con `scope test`.
 
-```bash
-git clone git@github.com:rannoverngyin/examen-parcial1-const-sw2.git
+## 5) Configurar JaCoCo en `pom.xml`
+Agregar `org.jacoco:jacoco-maven-plugin:0.8.12` dentro de `build.plugins` con:
+- `prepare-agent`
+- `report` en fase `test`
 
+Opcional evaluable:
+- regla `check` con umbral mínimo de cobertura de líneas (ejemplo: `0.70`).
 
-### 2. Ingresar al proyecto
+## 6) Servicio para evaluar cobertura
+Crear/verificar `src/main/java/pe/unas/demoapi/application/CalidadService.java` con lógica:
+- `clasificarCobertura(int porcentaje)`:
+  - inválido (<0 o >100) -> `IllegalArgumentException("Cobertura inválida")`
+  - `>= 80` -> `"ALTA"`
+  - `>= 50` -> `"MEDIA"`
+  - caso contrario -> `"BAJA"`
 
-```bash
-cd examen-parcial1-const-sw2
-```
+## 7) Pruebas unitarias
+Crear/verificar `src/test/java/pe/unas/demoapi/CalidadServiceTest.java`.
 
-### 3. Crear su rama
+Casos mínimos:
+- clasifica cobertura alta.
+- clasifica cobertura media.
+- clasifica cobertura baja.
+- rechaza cobertura negativa.
+- rechaza cobertura mayor a 100.
 
-Formato obligatorio:
+## 8) Ejecutar pruebas y generar reporte
+Comando principal:
+- `./mvnw clean test`
 
-```bash
-git checkout -b feature/apellido_nombre
-```
+Alternativa:
+- `mvn clean test`
 
-Ejemplo:
+Resultado esperado:
+- `BUILD SUCCESS`
+- generación de reporte en `target/site/jacoco/index.html`.
 
-```bash
-git checkout -b feature/yanac_rannoverng
-```
+## 9) Interpretar reporte JaCoCo
+Colores:
+- Verde: cubierto.
+- Rojo: no cubierto.
+- Amarillo: ramas parcialmente cubiertas.
 
-### 4. Resolver el ejercicio asignado
+Comparar cobertura antes/después y anotar qué método/clase mejoró.
 
-Implementar:
+## 10) Calidad complementaria
+Opciones sugeridas:
+- SonarLint (rápido/local).
+- SonarQube (análisis integral).
+- SonarCloud (integración en nube con GitHub).
 
-- Service
-- Controller
-- Endpoint REST
+## 11) Ejercicio aplicado
+Agregar en `CalidadService`:
+- `esAceptable(int porcentaje)` retorna `true` si `porcentaje >= 70`.
+- mantener validación de rango 0..100 (si no, excepción).
 
-Estructura:
+Agregar pruebas para:
+- 70
+- 90
+- 40
 
-```text
-domain/
-application/
-presentation/
-```
+Volver a ejecutar `./mvnw clean test` y revisar JaCoCo.
 
-### 5. Ejecutar
+## 12) Registrar avance con Git
+- `git status`
+- `git add .`
+- `git commit -m "Agrega cobertura de código con JaCoCo"`
+- `git push`
 
-```bash
-./mvnw spring-boot:run
-```
+## 13) Evidencias de entrega
+- Captura de terminal con `BUILD SUCCESS`.
+- Captura de `target/site/jacoco/index.html`.
+- Captura de pruebas agregadas.
+- Commit o Pull Request.
+- Breve interpretación de mejora de cobertura.
 
-### 6. Validar
+## 14) Errores frecuentes
+- No aparece `target/site/jacoco`: verificar plugin JaCoCo y ejecutar `mvn clean test`.
+- `BUILD FAILURE`: revisar prueba fallida y lógica esperada.
+- No compila: revisar paquetes, imports, llaves y rutas.
+- Falla umbral de cobertura: agregar pruebas o ajustar mínimo temporalmente.
+- `working tree clean`: no hay cambios pendientes.
 
-```bash
-curl http://localhost:8080/endpoint
-```
+## 15) Rúbrica (20 puntos)
+- Configuración JaCoCo: 4
+- Pruebas unitarias: 5
+- Interpretación de cobertura: 4
+- Calidad del código: 3
+- Git y evidencia: 4
 
-### 7. Commit
-
-```bash
-git add .
-git commit -m "Implementa API ejercicio"
-```
-
-### 8. Push
-
-```bash
-git push origin feature/apellido_nombre
-```
-
-### 9. Crear Pull Request
-
-En GitHub → Compare & Pull Request
-
----
-
-## Criterios de evaluación
-
-| Criterio | Puntaje |
-|----------|---------|
-| Branch creada | 4 |
-| Código funcional | 4 |
-| Commit correcto | 4 |
-| Push correcto | 4 |
-| Pull Request | 4 |
-| **Total** | **20** |
-
----
-
-## Tiempo del examen
-10 minutos
+## Mensaje final
+La cobertura no es un fin en sí mismo; es un indicador para fortalecer el banco de pruebas y construir software más confiable.
