@@ -42,8 +42,10 @@ Todas las pruebas unitarias pasaron satisfactoriamente de manera íntegra, ratif
   ![Evidencia mvn test](captura-mvn-test.png)
 - Captura evidenciando los archivos **ProductoService.java** y **ProductoServiceTest.java** implementados con la solución al reto:
   ![Evidencia de Test y Service](captura-archivo-test-service.png)
-- Captura del historial o ejecución del **Workflow (GitHub Actions)** en el repositorio web de GitHub con su "check" en verde.
-- Captura de Git local / push remoto en la rama asignada (`feature/sesion13-banco-pruebas-oriundo-josue`).
+- Captura del historial o ejecución del **Workflow (GitHub Actions)** en el repositorio web de GitHub con su "check" en verde:
+  ![Evidencia GitHub Actions](captura-github-actions.png)
+- Captura de Git local / push remoto en la rama asignada (`feature/sesion13-banco-pruebas-oriundo-josue`):
+  ![Evidencia Git Push](captura-git-push.png)
 
 ## Explicación del Flujo: Mantenimiento y GitHub Actions
 A diferencia de simples ejecuciones por consola, esta estructura incorpora un mecanismo de **Regresión e Integración Continua (CI)**. 
