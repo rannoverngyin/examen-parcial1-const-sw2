@@ -1,0 +1,36 @@
+Flujo de prueba: Controller → Service → Spring Context
+Spring Context
+
+Cuando ejecutas mvn test, Spring Boot levanta un contexto de aplicación real.
+
+Este contexto se encarga de inicializar los beans (@Service, @RestController, etc.) y configurar el servidor embebido (Tomcat en este caso).
+
+Service (ProductoService)
+
+Es la capa que contiene la lógica de negocio.
+
+En tu práctica, maneja una lista de productos usando CopyOnWriteArrayList para soportar concurrencia.
+
+Métodos como listar(), agregar(), eliminar() y total() son los que realmente modifican o consultan los datos.
+
+Controller (ProductoController)
+
+Expone los endpoints REST (/productos, /productos/total) y recibe las solicitudes HTTP.
+
+El controlador no procesa la lógica directamente, sino que delega al ProductoService.
+
+Ejemplo: un POST /productos?nombre=Teclado llama a service.agregar("Teclado") y devuelve "Producto agregado".
+
+Prueba de integración
+
+Usa TestRestTemplate para simular llamadas HTTP reales contra el controlador.
+
+Verifica que el Controller responde correctamente y que el Service ejecuta la lógica esperada dentro del Spring Context.
+
+Ejemplo: listarProductos_debeResponderOk comprueba que el endpoint devuelve "Laptop" porque el servicio inicializó esa lista.
+
+Prueba de concurrencia
+
+Simula múltiples hilos o solicitudes concurrentes.
+
+Valida que el servicio mantiene consistencia (el conteo de productos es correcto) y que el controlador responde sin errores aunque haya varios usuarios al mismo tiempo.
