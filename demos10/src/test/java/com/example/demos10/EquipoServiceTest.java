@@ -1,5 +1,5 @@
 package com.example.demos10;
-
+//comentario commit 
 import org.junit.jupiter.api.Test;
 import com.example.demos10.application.EquipoService;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +8,7 @@ public class EquipoServiceTest {
     void debeListarDosEquipos(){
         EquipoService service = new EquipoService();
         assertEquals(2, service.listar().size()); 
-        
+
     }
     
 }
