@@ -1,11 +1,29 @@
 package pe.unas.demoapi.application;
 
-import org.springframework.stereotype.Service;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 @Service
-public class investigadorService {
-    public List<String> Listar(){
-        return List.of("Luis Gorpa","Rannoverng Yanac");
+public class InvestigadorService {
+
+    private final List<String> investigadores = new ArrayList<>();
+
+    public InvestigadorService() {
+        investigadores.add("Yanac");
+        investigadores.add("Ulises");
     }
+
+
+    public List<String> listarInvestigadores(){
+        return investigadores;
+    }
+
+
+    public int totalInvestigadores(){
+        return investigadores.size();
+    }
+
+    
+
 }

@@ -1,11 +1,22 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
 package pe.unas.demoapi.application;
 
-import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+/**
+ *
+ * @author Microsoft
+ */
 @Service
 public class ProductoService {
+
     private final List<String> productos = new ArrayList<>();
 
     public ProductoService() {
@@ -42,4 +53,4 @@ public class ProductoService {
     public boolean existe(String nombre) {
         return productos.contains(nombre);
     }
-}
+} 

@@ -1,24 +1,35 @@
 package pe.unas.demoapi.presentation;
 
-import org.springframework.web.bind.annotation.RestController;
-
-import pe.unas.demoapi.application.investigadorService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import pe.unas.demoapi.application.InvestigadorService;
 
 @RestController
+@RequestMapping("/investigadores")
 
 public class InvestigadorController {
-    private final investigadorService service;
-    public InvestigadorController(investigadorService service){
+
+    private final InvestigadorService service;
+
+    public InvestigadorController(InvestigadorService service) {
         this.service = service;
     }
-    @GetMapping("/investigadores")
-    public List<String>Listar() {
-        return service.Listar();
+
+
+    @GetMapping
+    public List<String> listar() {
+        return service.listarInvestigadores();
     }
+
+    @GetMapping("/total")
+    public int total() {
+        return service.totalInvestigadores();
+    }
+
     
+
 }
