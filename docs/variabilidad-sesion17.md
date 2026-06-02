@@ -1,6 +1,6 @@
 # Análisis de variabilidad – Sesión 17
 
-## Punto de variación
+## Punto de variacióngit 
 Cálculo de precio final según tipo de cliente.
 
 ## Variantes

@@ -22,7 +22,7 @@ public class PrecioService {
         return switch (variante.toUpperCase()) {
             case "PREMIUM" -> precio * 0.90;
             case "VIP" -> precio * 0.80;
-            case "Estudainte" -> precio * 0.70;
+            case "ESTUDIANTE" -> precio * 0.70;
             default -> precio;
         };
     }
