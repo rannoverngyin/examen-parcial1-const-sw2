@@ -10,20 +10,19 @@ public class PrecioService {
     private String varianteCliente;
 
     public double calcularPrecioFinal(double precio) {
-        return calcularPorVariante(precio, varianteCliente);
+        return calcularPorVariante(precio, Variante.from(varianteCliente));
     }
 
     public String obtenerVarianteActiva() {
-        return varianteCliente;
+        return Variante.from(varianteCliente).name();
     }
 
     public double calcularPorVariante(double precio, String variante) {
-        return switch (variante.toUpperCase()) {
-            case "PREMIUM" -> precio * 0.90;
-            case "ESTUDIANTE" -> precio * 0.70;
-            case "VIP" -> precio * 0.80;
-            default -> precio;
-        };
+        return calcularPorVariante(precio, Variante.from(variante));
+    }
+
+    public double calcularPorVariante(double precio, Variante variante) {
+        return variante.aplicar(precio);
     }
 
 }
