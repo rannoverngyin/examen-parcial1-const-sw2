@@ -25,4 +25,9 @@ class PrecioServiceTest {
         assertEquals(100.0, service.calcularPorVariante(100, "BASICO"));
     }
 
+    @Test
+    void debeAplicarDescuentoEstudiante() {
+        assertEquals(70.0, service.calcularPorVariante(100, "ESTUDIANTE"));
+    }
+
 }
