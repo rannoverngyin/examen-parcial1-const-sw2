@@ -23,4 +23,5 @@ public class PrecioController {
     public String variante() {
         return service.obtenerVarianteActiva();
     }
+    
 }
