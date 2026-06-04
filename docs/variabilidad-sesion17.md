@@ -1,31 +1,46 @@
-# Análisis de variabilidad – Sesión 17
+# Sesión 18 - Configuración dinámica y perfiles
 
-## Punto de variación
-Cálculo de precio final según tipo de cliente.
+## Perfil dev
+Comando ejecutado:
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
+![alt text](image.png)
 
-## Variantes
-- BASICO: ![alt text](image-6.png) ![alt text](image-5.png)sin descuento (precio original)
-- PREMIUM:![alt text](image-1.png) ![alt text](image-2.png)10% de descuento (precio * 0.90)
-- VIP:![alt text](image-3.png) ![alt text](image-4.png) 20% de descuento (precio * 0.80)
 
-## Mecanismo usado
-Configuración externa mediante application.properties.
+Resultado:
 
-## Propiedad
-app.variante-cliente=BASICO
-app.variante-cliente=PREMIUM
-app.variante-cliente=VIP
+![alt text](image-3.png)
 
-## Endpoints
-- GET /variante-activa
-- GET /precio-final?precio=100
+![alt text](image-2.png)
+/config/info -> entorno dev
+![alt text](image-1.png)
 
-## Pruebas
-
+## perfil test
+![alt text](image-5.png)
+Resultado:
+![alt text](image-6.png)
 ![alt text](image-7.png)
+![alt text](image-8.png)
 
-## Evidencia
-- /variante-activa → PREMIUM
-- /precio-final?precio=100 con PREMIUM → 90.0
-- /precio-final?precio=100 con VIP → 80.0
-- BUILD SUCCESS con 4 pruebas
+
+## Perfil prod
+Variable usada:
+APP_MENSAJE=Sistema FIIS en produccion
+![alt text](image-9.png)
+
+Resultado:
+![alt text](image-12.png)
+![alt text](image-11.png)
+/config/info -> entorno prod
+![alt text](image-10.png)
+
+## Ejercicio aplicado
+dev
+![alt text](image-13.png)
+test
+![alt text](image-14.png)
+prod
+![alt text](image-15.png)
+
+## Conclusión
+La configuración cambia por entorno sin modificar el código fuente.
+
