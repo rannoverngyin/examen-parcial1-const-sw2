@@ -1,0 +1,28 @@
+package pe.unas.demoapi.presentation;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import pe.unas.demoapi.application.PrecioService;
+
+@RestController
+public class PrecioController {
+
+    private final PrecioService service;
+
+    // Inyección explícita por constructor
+    public PrecioController(PrecioService service) {
+        this.service = service;
+    }
+
+    @GetMapping("/precio-final")
+    public double calcular(@RequestParam double precio) {
+        return this.service.calcularPrecioFinal(precio);
+    }
+
+    @GetMapping("/variante-activa")
+    public String variante() {
+        return this.service.obtenerVarianteActiva();
+    }
+}
