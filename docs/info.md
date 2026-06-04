@@ -31,4 +31,7 @@ TEST DE PRUEBA CON EL 30% DE DESCUENTO AGREGADO
 
 ![alt text](image-5.png)
 
+git commit 
+
+![alt text](image-6.png)
 
