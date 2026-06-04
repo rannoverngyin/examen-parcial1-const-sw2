@@ -4,7 +4,7 @@
 
 Nombre de imagen: `variante_activa.png`
 
-![Endpoint variante activa funcionando](variante_activa.png)
+![Endpoint variante activa funcionando](variante-activa.png)
 
 ---
 
