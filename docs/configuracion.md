@@ -57,6 +57,29 @@ Resultado:
 
 ![alt text](image-9.png)
 
+## PASO 6 EJERCICIO APLICANDO app.soporte 
+
+## perfil dev 
+
+![alt text](image-10.png)
+
+## perfil test
+
+![alt text](image-11.png)
+
+## perfil prod 
+
+![alt text](image-12.png)
+ 
+
+
+ ## git commit 
+
+ ![alt text](image-13.png)
+
+ ## git push
+
+ 
 ## Conclusión
 La configuración cambia por entorno sin modificar el código fuente.
 
