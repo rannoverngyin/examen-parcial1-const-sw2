@@ -79,6 +79,8 @@ Resultado:
 
  ## git push
 
+ ![alt text](image-14.png)
+
  
 ## Conclusión
 La configuración cambia por entorno sin modificar el código fuente.
