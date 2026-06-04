@@ -1,54 +1,51 @@
-# Análisis de variabilidad – Sesión 17
+## 17. Evidencias de entrega
 
-## Descripción
+### 17.1. Captura de `/variante-activa` funcionando
 
-La API REST permite calcular el precio final de un producto según el tipo de
-cliente configurado externamente.
+Nombre de imagen: `variante_activa.png`
 
-## Característica común
+![Endpoint variante activa funcionando](variante_activa.png)
 
-La característica común es el cálculo del precio final de un producto.
+---
 
-## Punto de variación
+### 17.2. Capturas de `/precio-final?precio=100`
 
-El punto de variación es el porcentaje de descuento aplicado al precio original.
+#### Variante BASICO
 
-## Variantes
+Nombre de imagen: `basico.png`
 
-| Variante | Regla |
-|---|---|
-| BASICO | No aplica descuento |
-| PREMIUM | Aplica 10% de descuento |
-| VIP | Aplica 20% de descuento |
-| ESTUDIANTE | Aplica 30% de descuento |
+![Resultado de la variante BASICO](basico.png)
 
-## Mecanismo utilizado
+#### Variante PREMIUM
 
-Se utiliza configuración externa mediante el archivo `application.properties`.
+Nombre de imagen: `premium.png`
 
-## Propiedad configurable
+![Resultado de la variante PREMIUM](premium.png)
 
-```properties
-app.variante-cliente=PREMIUM
-```
+#### Variante VIP
 
-La propiedad puede cambiar a `BASICO`, `PREMIUM`, `VIP` o `ESTUDIANTE`.
+Nombre de imagen: `vip.png`
 
-## Endpoints
+![Resultado de la variante VIP](vip.png)
 
-- `GET /variante-activa`
-- `GET /precio-final?precio=100`
+#### Variante ESTUDIANTE
 
-## Resultados esperados
+Nombre de imagen: `estudiante.png`
 
-| Variante | Precio original | Precio final |
-|---|---:|---:|
-| BASICO | 100.0 | 100.0 |
-| PREMIUM | 100.0 | 90.0 |
-| VIP | 100.0 | 80.0 |
-| ESTUDIANTE | 100.0 | 70.0 |
+![Resultado de la variante ESTUDIANTE](estudiante.png)
 
-## Conclusión
+---
 
-La variabilidad permite cambiar el comportamiento del sistema mediante
-configuración externa, sin duplicar código ni modificar la lógica principal.
+### 17.3. Captura de ejecución de pruebas con `BUILD SUCCESS`
+
+Nombre de imagen: `build_success.png`
+
+![Ejecución de pruebas unitarias con BUILD SUCCESS](build_success.png)
+
+---
+
+### 17.4. Archivo de documentación creado
+
+Nombre del archivo: `variabilidad-sesion17.md`
+
+El archivo fue creado dentro de la carpeta `docs`.
