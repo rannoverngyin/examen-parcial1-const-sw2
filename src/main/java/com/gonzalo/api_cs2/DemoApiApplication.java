@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiCs2Application {
+public class DemoApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiCs2Application.class, args);
+        SpringApplication.run(DemoApiApplication.class, args);
     }
 }
