@@ -3,6 +3,7 @@ package pe.unas.demoapi.application;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+// Value lee la configuración externa. Si la propiedad no existe, se usa BASICO como valor por defecto.
 @Service
 public class PrecioService {
 

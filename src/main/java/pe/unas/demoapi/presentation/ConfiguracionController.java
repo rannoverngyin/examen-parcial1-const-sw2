@@ -7,6 +7,7 @@ import pe.unas.demoapi.application.ConfiguracionService;
 
 import java.util.Map;
 
+// Esta capa expone endpoints REST para verificar el perfil activo y mostrar la configuración actual
 @RestController
 @RequestMapping("/config")
 public class ConfiguracionController {
@@ -28,7 +29,7 @@ public class ConfiguracionController {
     }
 
     @GetMapping("/info")
-    public Map info() {
+    public Map<String, String> info() {
         return Map.of(
                 "entorno", service.obtenerEntorno(),
                 "mensaje", service.obtenerMensaje(),

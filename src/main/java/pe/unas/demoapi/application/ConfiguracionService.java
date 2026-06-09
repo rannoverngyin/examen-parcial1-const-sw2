@@ -3,6 +3,7 @@ package pe.unas.demoapi.application;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+// Esta clase leerá la configuración dinámica con Value
 @Service
 public class ConfiguracionService {
 
