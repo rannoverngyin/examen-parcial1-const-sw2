@@ -9,18 +9,14 @@ Este documento detalla el banco de pruebas diseñado y ejecutado para asegurar e
 
 ## 1. Matriz de Casos de Prueba (Test Cases)
 
-| ID | Tipo | Componente / Endpoint | Objetivo | Entradas / Configuración | Resultado Esperado | Estado | Evidencia |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **UT-01** | Unitaria | `EmailNotificadorService` | Verificar el envío aislado de notificaciones por email. | `destino = "correo@unas.edu.pe"` | Mensaje de texto que contiene la palabra `"EMAIL"`. | **Aprobado** | - |
-| **IT-01** | Integración | `/parametros/institucion` | Validar que el endpoint de institución responda correctamente. | Petición `GET` a `/parametros/institucion` | HTTP 200 OK y cuerpo con la palabra `"Universidad"`. | **Aprobado** | [institucion.png](institucion.png) |
-| **IT-02** | Integración | `/parametros/modo` | Validar que el endpoint de modo responda correctamente. | Petición `GET` a `/parametros/modo` | HTTP 200 OK y cuerpo con `"ACADEMICO"`. | **Aprobado** | [modo.png](modo.png) |
-| **IT-03** | Integración | `/parametros/limite-usuarios` | Validar que el endpoint de límite de usuarios responda correctamente. | Petición `GET` a `/parametros/limite-usuarios` | HTTP 200 OK y cuerpo con `"100"`. | **Aprobado** | [limite-usuarios.png](limite-usuarios.png) |
-| **IT-04** | Integración | `/parametros/version` | Validar que el endpoint de versión responda correctamente (Ejercicio). | Petición `GET` a `/parametros/version` | HTTP 200 OK y cuerpo con la versión `"1.0.0"`. | **Aprobado** | [version.png](version.png) |
-| **IT-05** | Integración | `/notificaciones/enviar` (Email) | Validar el envío de notificaciones mediante POST con el proveedor de Email. | Petición `POST` con `app.notificacion.proveedor=email` | HTTP 200 OK y confirmación de envío por EMAIL. | **Aprobado** | [notificacion-email.png](notificacion-email.png) |
-| **IT-06** | Integración | `/notificaciones/enviar` (Mock) | Validar el envío de notificaciones mediante POST con el proveedor Mock. | Petición `POST` con `app.notificacion.proveedor=mock` | HTTP 200 OK y confirmación de envío simulado. | **Aprobado** | [notificacion-mock.png](notificacion-mock.png) |
-| **BT-01** | Borde / Error | Inicialización del Contexto | Verificar la respuesta ante la falta de una propiedad obligatoria. | Comentar `app.institucion` en properties | Fallo de arranque con error `Could not resolve placeholder`. | **Aprobado** | - |
-| **BT-02** | Borde / Error | Inicialización del Contexto | Verificar la respuesta ante tipos de datos incompatibles. | `app.limite-usuarios=cien` | Fallo de arranque por error de conversión de tipos. | **Aprobado** | - |
-| **BT-03** | Borde / Error | Inicialización del Contexto | Verificar comportamiento si no se define un proveedor válido. | `app.notificacion.proveedor=sms` | Fallo de arranque por ausencia del Bean `NotificadorService`. | **Aprobado** | - |
+| ID | Tipo | Componente / Endpoint | Objetivo | Entradas / Configuración | Resultado Esperado | Estado |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **UT-01** | Unitaria | `EmailNotificadorService` | Verificar el envío aislado de notificaciones por email. | `destino = "correo@unas.edu.pe"` | Mensaje de texto que contiene la palabra `"EMAIL"`. | **Aprobado** |
+| **IT-01** | Integración | `/parametros/institucion` | Validar que el endpoint de institución responda correctamente. | Petición `GET` a `/parametros/institucion` | HTTP 200 OK y cuerpo con la palabra `"Universidad"`. | **Aprobado** |
+| **IT-02** | Integración | `/parametros/version` | Validar que el endpoint de versión responda correctamente (Ejercicio). | Petición `GET` a `/parametros/version` | HTTP 200 OK y cuerpo con la versión `"1.0.0"`. | **Aprobado** |
+| **BT-01** | Borde / Error | Inicialización del Contexto | Verificar la respuesta ante la falta de una propiedad obligatoria. | Comentar `app.institucion` en properties | Fallo de arranque con error `Could not resolve placeholder`. | **Aprobado** |
+| **BT-02** | Borde / Error | Inicialización del Contexto | Verificar la respuesta ante tipos de datos incompatibles. | `app.limite-usuarios=cien` | Fallo de arranque por error de conversión de tipos. | **Aprobado** |
+| **BT-03** | Borde / Error | Inicialización del Contexto | Verificar comportamiento si no se define un proveedor válido. | `app.notificacion.proveedor=sms` | Fallo de arranque por ausencia del Bean `NotificadorService`. | **Aprobado** |
 
 ---
 
@@ -32,17 +28,17 @@ Este documento detalla el banco de pruebas diseñado y ejecutado para asegurar e
     *   **Verificación:** Instanciación manual del servicio, llamada al método de envío y comparación del String resultante.
 
 ### B. Pruebas de Integración (MockMvc)
-*   **IT-01 a IT-04: Verificación del Endpoint de Parámetros**
-    *   **Propósito:** Validar que el controlador de parámetros intercepta las rutas respectivas, lee los valores desde el servicio inyectado y responde los estados y cuerpos correctos.
-    *   **Verificación:** Simulación de llamadas HTTP GET y validación de cabeceras HTTP 200 y contenido.
-*   **IT-05: Verificación del Endpoint de Notificación (POST)**
-    *   **Propósito:** Validar que el controlador de notificaciones responda a peticiones de tipo POST enviando la alerta al proveedor activo.
-    *   **Verificación:** Petición HTTP POST simulada contra `/notificaciones/enviar`.
+*   **IT-01: Verificación del Endpoint de Institución**
+    *   **Propósito:** Validar que el controlador intercepta la ruta `/parametros/institucion`, lee el valor desde el servicio inyectado y responde un código de estado de red correcto.
+    *   **Verificación:** Simulación de llamada HTTP GET y validación de cabecera HTTP 200 con aserción del cuerpo.
+*   **IT-02: Verificación del Endpoint de Versión (Ejercicio Aplicado)**
+    *   **Propósito:** Validar que la nueva propiedad `app.version-sistema` es accesible desde la capa REST externa a través del endpoint `/parametros/version`.
+    *   **Verificación:** Petición HTTP GET simulada contra `/parametros/version` verificando el retorno exacto de `"1.0.0"`.
 
 ### C. Pruebas de Borde y Escenarios de Error (Boundary Tests)
 *   **BT-01: Omisión de Propiedades obligatorias en Properties**
     *   **Comportamiento esperado:** Spring Boot detiene el inicio de la aplicación y arroja `IllegalArgumentException: Could not resolve placeholder`.
-*   **BT-02: Tipo de dato no coincendente**
+*   **BT-02: Tipo de dato no coincidente**
     *   **Comportamiento esperado:** Lanzamiento de `BeanCreationException` y `TypeMismatchException` si el límite de usuarios recibe caracteres no numéricos.
 *   **BT-03: Proveedor de notificaciones no soportado**
     *   **Comportamiento esperado:** Falla de inyección de dependencias en `NotificacionController` al no instanciarse ningún bean calificado para `NotificadorService`, arrojando `NoSuchBeanDefinitionException`.
@@ -56,34 +52,19 @@ A continuación se adjuntan las capturas de pantalla del funcionamiento correcto
 ### A. Prueba de Compilación y Test Automatizados
 Evidencia de que la ejecución local de `.\mvnw test` finaliza con éxito sin fallos.
 
-![Pruebas Unitarias e Integración Exitosas](test.png)
+![Pruebas Unitarias e Integración Exitosas](images/mvnw_test_success_1781015119839.png)
 
-### B. Endpoint de Parámetro Institución Funcionando
+### B. Endpoint de Parámetros Funcionando
 Evidencia de que el servidor responde el nombre de la institución mediante HTTP GET.
 
-![Endpoint Institución Funcionando](institucion.png)
+![Endpoint Parametros Funcionando](images/api_endpoint_institucion_1781015136263.png)
 
-### C. Endpoint de Parámetro Modo Funcionando
-Evidencia de que el servidor responde el modo activo mediante HTTP GET.
+### C. Notificaciones mediante Proveedor EMAIL
+Respuesta obtenida tras realizar la petición HTTP POST con el proveedor configurado en `email`.
 
-![Endpoint Modo Funcionando](modo.png)
+![Notificación por Email](images/curl_notificacion_email_1781015151000.png)
 
-### D. Endpoint de Parámetro Límite de Usuarios Funcionando
-Evidencia de que el servidor responde el límite de usuarios mediante HTTP GET.
+### D. Notificaciones mediante Proveedor MOCK
+Respuesta obtenida tras realizar la petición HTTP POST tras cambiar la propiedad a `mock`.
 
-![Endpoint Límite de Usuarios Funcionando](limite-usuarios.png)
-
-### E. Endpoint de Parámetro Versión Funcionando
-Evidencia de que el servidor responde la versión del sistema mediante HTTP GET.
-
-![Endpoint Versión Funcionando](version.png)
-
-### F. Notificación mediante POST (Proveedor Email)
-Respuesta obtenida tras realizar la petición HTTP POST a `/notificaciones/enviar` con el proveedor de correo electrónico.
-
-![Notificación por POST Email](notificacion-email.png)
-
-### G. Notificación mediante POST (Proveedor Mock)
-Respuesta obtenida tras realizar la petición HTTP POST a `/notificaciones/enviar` con el proveedor Mock (simulado).
-
-![Notificación por POST Mock](notificacion-mock.png)
+![Notificación Simulada Mock](images/curl_notificacion_mock_1781015169348.png)
