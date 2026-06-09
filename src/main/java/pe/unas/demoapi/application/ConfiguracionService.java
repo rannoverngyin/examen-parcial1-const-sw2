@@ -1,4 +1,4 @@
-package pe.unas.demoapi.application;
+/* package pe.unas.demoapi.application;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -34,3 +34,5 @@ public class ConfiguracionService {
         return soporte;  
     }  // ← NUEVO
 }
+
+*/
