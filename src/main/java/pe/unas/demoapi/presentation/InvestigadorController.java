@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pe.unas.demoapi.application.investigadorService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.List;
 
