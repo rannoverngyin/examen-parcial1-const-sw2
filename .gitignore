@@ -1,0 +1,28 @@
+# === IDEs and Editors ===
+# Ignorar configuraciones locales de VS Code y cachés del Language Server
+.vscode/
+.metadata/
+src/main/.metadata/
+
+# === Build Tools (Maven) ===
+# Ignorar ejecutables compilados y binarios temporales
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# === Operating System Files ===
+# Archivos basura del sistema operativo (Windows/macOS)
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# === Logs and Temporaries ===
+# Archivos de registro de errores en ejecución
+*.log
+.crash
+
+# === Personal Notes (Optional) ===
+# Descomenta las siguientes líneas si no quieres que el profesor vea tus guías de estudio personales en GitHub
+docs/guia19.md
