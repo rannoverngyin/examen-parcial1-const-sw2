@@ -20,7 +20,7 @@ BUILD SUCCESS
 ![Captura de la prueba unitaria del proveedor email](EMAILTEST.png)
 ![Captura de la prueba de integración de parámetros](PARAMETROSTEST.png)
 ![Captura de la salida de la terminal después de probar los tests (incluye tests anteriores)](TESTS.png)
-
+![Evidencia del commit y pull request](COMMIT.png)![](PULL.png)
 
 ## Conclusión
-La API responde correctamente y el servicio mantiene consistencia básica ante solicitudes concurrentes.
+La configuración y parametrización permiten que el software sea flexible, mantenible y adaptable a distintos entornos sin recompilar ni modificar el código fuente. Esta práctica conecta la variabilidad del software con la construcción profesional de sistemas empresariales.
