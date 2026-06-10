@@ -4,17 +4,22 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
+// Expone parámetros de configuración.
 public class ParametroService {
 
+    // Datos de la institución.
     @Value("${app.institucion}")
     private String institucion;
 
+    // Modo de ejecución.
     @Value("${app.modo}")
     private String modo;
 
+    // Límite de usuarios.
     @Value("${app.limite-usuarios}")
     private int limiteUsuarios;
 
+    // Versión del sistema.
     @Value("${app.version-sistema}")
     private String versionSistema;
 

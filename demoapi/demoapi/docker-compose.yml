@@ -1,0 +1,10 @@
+services:
+  api:
+    image: examen-parcial1-api:1.0
+    build: .
+    container_name: examen-api
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    restart: unless-stopped

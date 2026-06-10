@@ -9,6 +9,7 @@ import pe.unas.demoapi.application.NotificadorService;
 
 @RestController
 @RequestMapping("/notificaciones")
+// Maneja el envío de notificaciones.
 public class NotificacionController {
 
     private final NotificadorService service;
@@ -18,6 +19,7 @@ public class NotificacionController {
     }
 
     @PostMapping("/enviar")
+    // Envía la notificación al destino indicado.
     public String enviar(@RequestParam String destino) {
         return service.enviar(destino);
     }

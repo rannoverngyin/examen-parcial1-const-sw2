@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import pe.unas.demoapi.application.EmailNotificadorService;
 
+// Verifica el envío por correo.
 class EmailNotificadorServiceTest {
 
     @Test
@@ -13,6 +14,7 @@ class EmailNotificadorServiceTest {
 
         String resultado = service.enviar("correo@unas.edu.pe");
 
+        // Confirma el canal usado.
         assertTrue(resultado.contains("EMAIL"));
     }
 }
