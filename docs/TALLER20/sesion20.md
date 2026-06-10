@@ -24,7 +24,7 @@ BUILD SUCCESS
 ![Captura del curl al endpoint /productos](DOCKERCOMPOSE.png)![](PRODUCTOS.png) 
 ![Captura de los archivos Dockerfile y docker-compose.yml](DOCKERFILE.png)![](DOCKERYML.png) 
 ![Captura de volumen persistente](VOLUMENPERSISTENTE.png) ![](VOLUMENSINELIMINAR.png)
-![Evidencia del commit y pull request](COMMIT.png)![](PULL.png)
+![Evidencia del commit y push](COMMIT.png)![](PUSH.png) 
 
 ## Conclusión
 Desplegar software no es solamente ejecutar codigo; es hacerlo reproducible, verificable y portable. Un contenedor permite que la aplicacion funcione igual en la PC del estudiante, en el laboratorio y en un servidor.
