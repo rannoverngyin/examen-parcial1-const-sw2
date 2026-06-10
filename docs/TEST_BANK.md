@@ -52,7 +52,7 @@ A continuación se adjuntan las capturas de pantalla del funcionamiento correcto
 ### A. Prueba de Compilación y Test Automatizados
 Evidencia de que la ejecución local de `.\mvnw test` finaliza con éxito sin fallos.
 
-![Pruebas Unitarias e Integración Exitosas](images/mvnw_test_success_1781015119839.png)
+![Pruebas Unitarias e Integración Exitosas](capturas/test.png)
 
 ### B. Endpoint de Parámetros Funcionando
 Evidencia de que el servidor responde el nombre de la institución mediante HTTP GET.
