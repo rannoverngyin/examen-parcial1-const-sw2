@@ -52,3 +52,12 @@ prueba de persistencia
 
 
 ![alt text](image-10.png)
+
+git commit 
+
+![alt text](image-11.png)
+
+
+git push 
+
+![alt text](image-12.png)
