@@ -29,4 +29,9 @@ public class ParametroController {
     public int limiteUsuarios() {
         return service.obtenerLimiteUsuarios();
     }
+
+    @GetMapping("/version")
+    public String version() {
+        return service.obtenerVersionSistema();
+    }
 }

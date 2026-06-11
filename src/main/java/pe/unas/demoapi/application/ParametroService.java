@@ -15,6 +15,9 @@ public class ParametroService {
     @Value("${app.limite-usuarios}")
     private int limiteUsuarios;
 
+    @Value("${app.version-sistema}")
+    private String versionSistema;
+
     public String obtenerInstitucion() {
         return institucion;
     }
@@ -25,5 +28,9 @@ public class ParametroService {
 
     public int obtenerLimiteUsuarios() {
         return limiteUsuarios;
+    }
+
+    public String obtenerVersionSistema() {
+        return versionSistema;
     }
 }
