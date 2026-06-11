@@ -34,6 +34,8 @@ $ ./mvnw test
 [INFO] Total time:  15.950 s
 ```
 
+![Ejecución de Pruebas Unitarias Exitosas](01-mvnw-test-success.png)
+
 ---
 
 ## E2. Empaquetado del Proyecto (`./mvnw clean package -DskipTests`)
@@ -56,27 +58,28 @@ $ ./mvnw clean package -DskipTests
 [INFO] ------------------------------------------------------------------------
 ```
 
+![Empaquetado Maven Exitoso](02-mvnw-package-success.png)
+
 ---
 
 ## E3. Construcción de la Imagen Docker
 
 La imagen Docker se configuró utilizando **Eclipse Temurin 21 (JRE)** ya que el JAR del proyecto fue compilado bajo la especificación de Java 21 (versión de clase 65.0).
 
-### Comandos de Construcción
+### Comandos de Construcción y Comprobación
 ```bash
 $ docker build -t examen-parcial1-api:1.0 .
 #10 exporting to image
 #10 exporting layers 1.5s done
 #10 naming to docker.io/library/examen-parcial1-api:1.0 done
-#10 unpacking to docker.io/library/examen-parcial1-api:1.0 0.7s done
-#10 DONE 2.4s
-```
+#10 unpacking to docker.io/library/examen-parcial1-api:1.0 0.8s done
+#10 DONE 2.5s
 
-### Comprobación de la Imagen
-```bash
 $ docker images | Select-String examen-parcial1-api
 examen-parcial1-api:1.0   61932a244edb        465MB          128MB
 ```
+
+![Construcción e Imagen Docker de la API](03-docker-build-success.png)
 
 ---
 
@@ -91,21 +94,22 @@ CONTAINER ID   IMAGE                           COMMAND                  CREATED 
 60615795ac10   postgres:16                     "docker-entrypoint.s…"   6 seconds ago   Up 5 seconds   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   examen-db
 ```
 
+![Contenedores en Ejecución con Docker Compose](04-docker-ps-active.png)
+
 ---
 
 ## E5. Validación de Endpoints con `curl`
 
-### Endpoint `/productos`
+### Respuestas de Endpoints Activos (`/productos` y `/config/info`):
 ```bash
 $ curl.exe -s http://localhost:8080/productos
 ["Laptop","Mouse"]
-```
 
-### Endpoint `/config/info` (Perfil `docker` Activo)
-```bash
 $ curl.exe -s http://localhost:8080/config/info
 {"version":"1.0-DOCKER","mensaje":"Entorno de docker FIIS","entorno":"docker","soporte":"soporte-docker@unas.edu.pe"}
 ```
+
+![Validación de Endpoints con Curl](05-curl-endpoints-success.png)
 
 ---
 
@@ -198,4 +202,10 @@ Se validó la persistencia de datos reiniciando el servicio de base de datos sin
       1 | dato persistente
    (1 row)
    ```
-   **Resultado:** Exitoso. Los datos persisten después del ciclo de vida del contenedor.
+
+![Persistencia de Volumen PostgreSQL](06-postgres-persistence.png)
+
+---
+
+## Conclusión
+La dockerización y la orquestación multi-contenedor se completaron con éxito. El uso de volúmenes persistentes garantiza la disponibilidad de datos de la base de datos de manera robusta a través del ciclo de vida del contenedor.
