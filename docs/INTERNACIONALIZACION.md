@@ -37,17 +37,6 @@ Pruebas de integración verificando los idiomas.
 
 ## Evidencias Adicionales (Retos)
 
-**E6: Reto Opcional (Cabecera Accept-Language)**
-- GET `/i18n/saludo-header` con header `Accept-Language: en`
-![Evidencia E6 - Reto Headers](./e6_reto_headers.png)
-
 **E7: Ejercicio Aplicado (Evaluación)**
 - GET `/i18n/evaluacion?lang=es` y `lang=en`
 ![Evidencia E7 - Evaluacion](./e7_evaluacion.png)
-
----
-
-## Evidencia de Repositorio
-
-**E8: Commit en la rama feature**
-![Evidencia E8 - Git Push](./e8_git_push.png)
