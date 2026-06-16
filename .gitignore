@@ -1,0 +1,70 @@
+# ==========================================
+# IDEs and Editors
+# ==========================================
+.vscode/
+.idea/
+*.iml
+
+.metadata/
+src/main/.metadata/
+
+# ==========================================
+# Maven / Java Build
+# ==========================================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven Wrapper logs
+.mvn/wrapper/maven-wrapper.jar
+
+# ==========================================
+# Spring Boot
+# ==========================================
+logs/
+*.log
+spring.log
+
+# Archivos de configuración local
+application-local.properties
+application-dev.properties
+
+# ==========================================
+# Testing
+# ==========================================
+surefire-reports/
+failsafe-reports/
+
+# ==========================================
+# Docker
+# ==========================================
+*.tar
+
+# ==========================================
+# Operating System Files
+# ==========================================
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ==========================================
+# Temporary Files
+# ==========================================
+tmp/
+temp/
+*.tmp
+*.swp
+
+# ==========================================
+# Coverage Reports
+# ==========================================
+coverage/
+jacoco.exec
+/site/
+
+# ==========================================
+# Personal Notes (Optional)
+# ==========================================
+docs/guia19.md
