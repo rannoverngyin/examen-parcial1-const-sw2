@@ -1,15 +1,14 @@
-/*package pe.unas.demoapi.application;
+package pe.unas.demoapi.application;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnProperty(name = "app.notificacion.proveedor", havingValue = "email")
+@Profile("prod")
 public class EmailNotificadorService implements NotificadorService {
 
     @Override
     public String enviar(String destino) {
-        return "Notificación enviada por EMAIL a " + destino;
+        return "Notificacion real enviada a " + destino;
     }
 }
-*/

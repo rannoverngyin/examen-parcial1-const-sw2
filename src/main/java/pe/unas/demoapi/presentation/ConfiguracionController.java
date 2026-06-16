@@ -1,4 +1,4 @@
-/*package pe.unas.demoapi.presentation;
+package pe.unas.demoapi.presentation;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,4 +36,4 @@ public class ConfiguracionController {
     public String soporte() {
         return service.obtenerSoporte();
     }
-*/
+}
