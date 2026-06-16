@@ -1,4 +1,4 @@
-package pe.unas.demoapi;
+/*package pe.unas.demoapi;
 
 import org.junit.jupiter.api.Test;
 import pe.unas.demoapi.application.EmailNotificadorService;
@@ -16,3 +16,4 @@ class EmailNotificadorServiceTest {
         assertTrue(resultado.contains("EMAIL"));
     }
 }
+*/

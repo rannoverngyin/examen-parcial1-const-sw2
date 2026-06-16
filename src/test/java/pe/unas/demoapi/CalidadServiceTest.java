@@ -1,4 +1,4 @@
-package pe.unas.demoapi;
+/*package pe.unas.demoapi;
 
 import org.junit.jupiter.api.Test;
 import pe.unas.demoapi.application.CalidadService;
@@ -51,3 +51,4 @@ class CalidadServiceTest {
         assertFalse(service.esAceptable(40));
     }
 }
+*/

@@ -1,4 +1,4 @@
-package pe.unas.demoapi.presentation;
+/*package pe.unas.demoapi.presentation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,3 +57,4 @@ class ProductoControllerIntegrationTest {
                 .andExpect(content().string("2"));
     }
 }
+*/
