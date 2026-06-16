@@ -8,26 +8,27 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class ParametroControllerTest {
+class InternacionalizacionControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void debeMostrarInstitucionConfigurada() throws Exception {
-        mockMvc.perform(get("/parametros/institucion"))
+    void debeResponderSaludoEnEspanol() throws Exception {
+        mockMvc.perform(get("/i18n/saludo").param("lang", "es"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Universidad")));
+                .andExpect(content().string(containsString("Bienvenido")));
     }
 
-        @Test
-    void debeMostrarVersionDelSistema() throws Exception {
-        mockMvc.perform(get("/parametros/version-sistema"))
+    @Test
+    void debeResponderSaludoEnIngles() throws Exception {
+        mockMvc.perform(get("/i18n/saludo").param("lang", "en"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("1.0.0")));
+                .andExpect(content().string(containsString("Welcome")));
     }
 }
