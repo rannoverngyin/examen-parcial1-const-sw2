@@ -1,7 +1,6 @@
 package pe.unas.demoapi.presentation;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,13 +33,5 @@ public class InternacionalizacionController {
     @GetMapping("/i18n/evaluacion")
     public String evaluacion(@RequestParam(defaultValue = "es") String lang) {
         return service.obtenerMensaje("evaluacion", lang);
-    }
-
-    @GetMapping("/i18n/saludo-header")
-    public String saludoHeader(
-            @RequestHeader(name = "Accept-Language", defaultValue = "es") String lang
-    ) {
-        String idioma = lang.startsWith("en") ? "en" : "es";
-        return service.obtenerMensaje("saludo", idioma);
     }
 }

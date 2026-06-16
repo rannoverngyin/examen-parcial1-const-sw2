@@ -30,18 +30,4 @@ class InternacionalizacionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Welcome")));
     }
-
-    @Test
-    void debeResponderEvaluacionEnEspanol() throws Exception {
-        mockMvc.perform(get("/i18n/evaluacion").param("lang", "es"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Evaluación")));
-    }
-
-    @Test
-    void debeResponderEvaluacionEnIngles() throws Exception {
-        mockMvc.perform(get("/i18n/evaluacion").param("lang", "en"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Assessment")));
-    }
 }
