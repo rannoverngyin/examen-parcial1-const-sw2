@@ -1,63 +1,35 @@
 
-## sesion 20
+# Internacionalización
 
-## PASO 1 verificar un endpoint funcional de su proyecto
+## Objetivo
+Permitir que la API responda mensajes en más de un idioma.
 
+## Idiomas soportados
+- Español: es
+- Inglés: en
 
-![alt text](image-1.png)
-
-## PASO 2 Construir el JAR con Maven.
+## Endpoints
 
 ![alt text](image.png)
 
-## PASO 3 Crear Dockerfile y .dockerignore.
+## Evidencia
+Capturas de curl y ejecución de pruebas.
 
-.dockerignore 
 
-![alt text](image-2.png)
+test de prueba 
 
-Dockerfile 
+![alt text](image-1.png)
 
-![alt text](image-3.png)
+endpoint adicional que use la cabecera HTTP Accept-Language.
 
-## PASO 4 Construir la imagen Docker.
 
 ![alt text](image-4.png)
 
-## PASO 5 Ejecutar la API en contenedor.
 
-![alt text](image-5.png)
+endpoint evaluacion
 
-## PASO 6 Crear docker-compose.yml.
-
-![alt text](image-6.png)
-
-## paso 7  Validar con curl y capturas.
-
-![alt text](image-7.png)
-
-## paso 12 
-
-EJECUTAMOS Y VERIFICAMOS LOS CONTENEDORES
-
-![alt text](image-8.png)
+![alt text](image-3.png)
 
 
-CREAMOS UNA TABLA DE PRUEBA
-
-![alt text](image-9.png)
 
 
-prueba de persistencia
-
-
-![alt text](image-10.png)
-
-git commit 
-
-![alt text](image-11.png)
-
-
-git push 
-
-![alt text](image-12.png)
