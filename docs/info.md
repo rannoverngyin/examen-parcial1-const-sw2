@@ -31,5 +31,7 @@ endpoint evaluacion
 ![alt text](image-3.png)
 
 
+## commit y push 
 
+![alt text](image-5.png)
 
