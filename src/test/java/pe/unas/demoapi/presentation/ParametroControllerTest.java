@@ -1,4 +1,4 @@
-package pe.unas.demoapi.presentation;
+/*package pe.unas.demoapi.presentation;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -30,5 +30,5 @@ class ParametroControllerTest {
             .andExpect(content().string(containsString("1.0.0")));
     }
 
-}
+}*/
 

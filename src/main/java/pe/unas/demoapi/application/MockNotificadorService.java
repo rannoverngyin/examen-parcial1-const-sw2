@@ -1,4 +1,4 @@
-package pe.unas.demoapi.application;
+/*package pe.unas.demoapi.application;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
@@ -11,5 +11,5 @@ public class MockNotificadorService implements NotificadorService {
     public String enviar(String destino) {
         return "Notificación simulada para " + destino;
     }
-}
+}*/
 

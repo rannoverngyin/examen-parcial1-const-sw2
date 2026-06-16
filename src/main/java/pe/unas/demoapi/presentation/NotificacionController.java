@@ -1,4 +1,4 @@
-package pe.unas.demoapi.presentation;
+/*package pe.unas.demoapi.presentation;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +20,5 @@ public class NotificacionController {
     public String enviar(@RequestParam String destino) {
         return service.enviar(destino);
     }
-}
+}*/
 
