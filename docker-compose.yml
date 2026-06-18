@@ -1,11 +1,15 @@
 services:
   api:
     build: .
-    container_name: examen-api
+    container_name: demoapi-sesion22
     ports:
       - "8080:8080"
     environment:
-      SPRING_PROFILES_ACTIVE: docker
+      SPRING_PROFILES_ACTIVE: prod
+      APP_ENV: prod
+      APP_VERSION: 1.0.0
+
+      # Conexión PostgreSQL
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/appdb
       SPRING_DATASOURCE_USERNAME: appuser
       SPRING_DATASOURCE_PASSWORD: apppass
