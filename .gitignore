@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+target/classes
+target/generated-sources
+.git
+.idea
+.vscode
+*.log
