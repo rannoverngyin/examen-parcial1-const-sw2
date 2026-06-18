@@ -1,6 +1,32 @@
 # Validación de Configuración y Despliegue
 
+1. Configuración de Entornos (Profiles):
+src/main/resources/application.properties: Propiedades base con placeholders de entorno.
+src/main/resources/application-dev.properties, application-test.properties, application-prod.properties: Creados archivos de propiedades específicos para cada entorno (DEV, TEST, PROD).
+
+2. Capa de Aplicación (Application Layer):
+src/main/java/pe/unas/demoapi/application/DeploymentValidationService.java: Creado servicio que expone la configuración del entorno, estado de salud de la API, y la versión actual (ejercicio aplicado).
+
+3. Capa de Presentación (Presentation Layer):
+src/main/java/pe/unas/demoapi/presentation/DeploymentValidationController.java: Creado controlador REST con endpoints:
+GET /deploy/config
+GET /deploy/health
+GET /deploy/checklist
+GET /deploy/version (ejercicio aplicado)
+
+4. Pruebas de Integración (Integration Tests):
+src/test/java/pe/unas/demoapi/DeploymentValidationControllerTest.java: Creadas pruebas de integración con MockMvc para validar que los endpoints respondan correctamente y retornen los valores esperados bajo el perfil TEST.
+
+5. Contenedores de Docker (Containerization):
+.dockerignore: Evita empaquetar archivos innecesarios.
+Dockerfile: Configurado entorno JRE 17, copiado de JAR y variables de entorno por defecto (prod).
+docker-compose.yml: Orquestación de servicios para levantar la API en un entorno aislado.
+
+6. Documentación Técnica:
+DEPLOYMENT_VALIDATION.md: Documentada la validación de perfiles, endpoints y evidencias de curl y docker.
+
 ## Perfil Validado
+docker build -t demoapi-sesion22 . 
 - **DEV**: Ejecutado y validado localmente con perfiles de desarrollo.
 - **TEST**: Validado automáticamente mediante pruebas de integración.
 - **PROD**: Ejecutado y validado en contenedores de Docker (usando Dockerfile y Docker Compose).
@@ -76,5 +102,10 @@ $ curl.exe http://localhost:8080/deploy/version
 ```
 
 ### 4. Registro y Commit en Git
-- Rama: `feature/sesion22-validacion-despliegue`
-- Pull Request creado en GitHub.
+- Rama: `feature/sesion22_validacion_despliegue_zelaya_anali`
+
+git init
+git checkout -b feature/sesion22_validacion_despliegue_zelaya_anali
+git add .
+git commit -m "Desarrollo de la Sesión 22 - Validación de configuración y despliegue"
+git push -u origin feature/sesion22_validacion_despliegue_zelaya_anali
