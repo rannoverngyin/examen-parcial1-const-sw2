@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    container_name: demoapi-sesion22
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      APP_ENV: prod
+      APP_VERSION: 1.0.0
