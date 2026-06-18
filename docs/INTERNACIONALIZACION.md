@@ -1,35 +1,163 @@
-# Incremento: Internacionalización (i18n) en API REST
+# Validación de configuración y despliegue
 
-[cite_start]Este componente implementa el soporte multi-idioma para la gestión de mensajes de la API de la FIIS-UNAS, desacoplando los textos del código fuente mediante el uso de `MessageSource`[cite: 3, 5, 6, 17, 18].
+## Información general
 
----
+**Proyecto:** examen-parcial1-const-sw2
 
-## Objetivo
-[cite_start]Separar los mensajes del código fuente utilizando archivos de propiedades independientes (`messages.properties`) y permitir cambiar el idioma de las respuestas de los endpoints dinámicamente mediante parámetros en la URL[cite: 6, 7, 8].
+**Tecnologías utilizadas:**
 
-## Idiomas Soportados
-[cite_start]La API detecta el parámetro `lang` y resuelve las cadenas basándose en los siguientes locales[cite: 43, 44, 51]:
-* [cite_start]**Español (`es`)**: Idioma activo y por defecto del sistema[cite: 29, 31, 51].
-* [cite_start]**Inglés (`en`)**: Traducciones mapeadas para el contexto internacional[cite: 33, 43].
+* Java 17
+* Spring Boot
+* Maven
+* Docker
+* Git y GitHub
 
----
+## Perfiles validados
 
-## Endpoints Disponibles
+### Entorno de desarrollo (DEV)
 
-[cite_start]Los siguientes endpoints responden dinámicamente según el idioma solicitado[cite: 51, 52, 53]:
+La aplicación fue ejecutada localmente utilizando el perfil de desarrollo para verificar la carga correcta de la configuración por entorno.
 
-| Método | Endpoint | Parámetro | Descripción |
-| :--- | :--- | :--- | :--- |
-| **GET** | `/i18n/saludo` | `lang=es` / `lang=en` | [cite_start]Mensaje de bienvenida al sistema[cite: 51]. |
-| **GET** | `/i18n/curso` | `lang=es` / `lang=en` | [cite_start]Nombre de la asignatura actual[cite: 52]. |
-| **GET** | `/i18n/idioma` | `lang=es` / `lang=en` | [cite_start]Confirmación del locale activo[cite: 53]. |
+Comando utilizado:
 
-### Ejemplos de uso con `curl`:
 ```bash
-# Consulta en Español (Por defecto)
-curl "http://localhost:8080/i18n/saludo?lang=es"
-# Respuesta: Bienvenido al sistema FIIS-UNAS
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
+```
 
-# Consulta en Inglés
-curl "http://localhost:8080/i18n/saludo?lang=en"
-# Respuesta: Welcome to the FIIS-UNAS system
+Resultado:
+
+* Aplicación iniciada correctamente.
+* Configuración DEV cargada satisfactoriamente.
+* Endpoints accesibles desde localhost.
+
+### Entorno de producción (PROD)
+
+La aplicación fue desplegada mediante Docker utilizando el perfil de producción.
+
+Comando utilizado:
+
+```bash
+docker run --name demoapi-sesion22 -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod demoapi-sesion22
+```
+
+Resultado:
+
+* Contenedor iniciado correctamente.
+* Perfil PROD cargado satisfactoriamente.
+* API accesible desde el puerto 8080.
+
+---
+
+## Endpoints verificados
+
+### GET /deploy/config
+
+Respuesta obtenida:
+
+```json
+{
+  "version": "1.0.0",
+  "message": "Entorno de produccion activo",
+  "environment": "PROD"
+}
+```
+
+Validación:
+
+* Configuración cargada correctamente.
+* Perfil de producción activo.
+* Versión de la aplicación obtenida desde configuración.
+
+### GET /deploy/health
+
+Respuesta obtenida:
+
+```json
+{
+  "checkedAt": "2026-06-18T13:43:43.450202441",
+  "status": "OK",
+  "environment": "PROD"
+}
+```
+
+Validación:
+
+* Estado del servicio correcto.
+* Endpoint operativo.
+* Información de entorno disponible.
+
+### GET /deploy/checklist
+
+Respuesta obtenida:
+
+```json
+[
+  "perfil activo validado",
+  "configuracion externa cargada",
+  "api responde correctamente",
+  "contenedor listo para despliegue"
+]
+```
+
+Validación:
+
+* Checklist de despliegue completado.
+* Respuesta correcta del endpoint.
+
+---
+
+## Pruebas automatizadas
+
+Comando ejecutado:
+
+```bash
+./mvnw test
+```
+
+Resultado:
+
+```text
+Tests run: 3
+Failures: 0
+Errors: 0
+Skipped: 0
+
+BUILD SUCCESS
+```
+---
+
+## Construcción del artefacto
+
+Comando ejecutado:
+
+```bash
+./mvnw clean package -DskipTests
+```
+
+Resultado:
+
+* Archivo JAR generado correctamente dentro del directorio target.
+* Aplicación lista para despliegue.
+
+---
+
+## Despliegue con Docker
+
+Comandos ejecutados:
+
+```bash
+docker build -t demoapi-sesion22 .
+docker run --name demoapi-sesion22 -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod demoapi-sesion22
+```
+
+Resultado:
+
+* Imagen Docker construida correctamente.
+* Contenedor ejecutado satisfactoriamente.
+* Endpoints accesibles desde el host.
+
+---
+
+## Conclusiones
+
+La aplicación Spring Boot fue configurada correctamente para trabajar con múltiples perfiles de entorno (DEV, TEST y PROD). Se verificó el funcionamiento de los endpoints de validación, se ejecutaron satisfactoriamente las pruebas automatizadas y se realizó el despliegue exitoso mediante Docker. El sistema quedó listo para su liberación y futuras etapas de integración continua.
