@@ -2,6 +2,7 @@ package pe.unas.demoapi.application;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.util.Map;
 
@@ -31,5 +32,9 @@ public class DeploymentValidationService {
                 "environment", environment,
                 "checkedAt", LocalDateTime.now().toString()
         );
+    }
+
+    public String version() {
+        return version;
     }
 }

@@ -35,4 +35,11 @@ class DeploymentValidationControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("OK")));
     }
+
+    @Test
+    void debeMostrarVersion() throws Exception {
+        mockMvc.perform(get("/deploy/version"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("1.0.0")));
+    }
 }

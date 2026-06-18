@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pe.unas.demoapi.application.DeploymentValidationService;
+
 import java.util.List;
 import java.util.Map;
 
@@ -35,5 +36,10 @@ public class DeploymentValidationController {
                 "api responde correctamente",
                 "contenedor listo para despliegue"
         );
+    }
+
+    @GetMapping("/version")
+    public String version() {
+        return service.version();
     }
 }
