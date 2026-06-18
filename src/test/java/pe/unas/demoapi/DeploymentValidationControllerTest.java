@@ -11,30 +11,35 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
+@SpringBootTest(properties = {
+        "app.environment=TEST",
+        "app.version=1.0.0",
+        "app.message=Entorno de pruebas activo"
+})
 @AutoConfigureMockMvc
-class InternacionalizacionControllerTest {
+class DeploymentValidationControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void debeResponderSaludoEnEspanol() throws Exception {
-
-        mockMvc.perform(get("/i18n/saludo")
-                .param("lang", "es"))
+    void debeMostrarConfiguracionActiva() throws Exception {
+        mockMvc.perform(get("/deploy/config"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(
-                        containsString("Bienvenido")));
+                .andExpect(content().string(containsString("TEST")));
     }
 
     @Test
-    void debeResponderSaludoEnIngles() throws Exception {
-
-        mockMvc.perform(get("/i18n/saludo")
-                .param("lang", "en"))
+    void debeResponderHealthOk() throws Exception {
+        mockMvc.perform(get("/deploy/health"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(
-                        containsString("Welcome")));
+                .andExpect(content().string(containsString("OK")));
     }
+    @Test
+    void debeMostrarVersion() throws Exception {
+
+    mockMvc.perform(get("/deploy/version"))
+            .andExpect(status().isOk())
+            .andExpect(content().string(containsString("1.0.0")));
+        }
 }
