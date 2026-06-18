@@ -3,6 +3,7 @@
 ## Perfil validado
 - dev: ejecutado localmente
 - prod: ejecutado en Docker
+- test: ejecutado en pruebas
 
 ## Endpoints verificados
 - GET /deploy/config
