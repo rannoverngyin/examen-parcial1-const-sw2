@@ -10,7 +10,7 @@ Comando ejecutado:
 
 Resultado: la aplicación inició correctamente con el perfil `dev`, mostrando que Tomcat se ejecuta en el puerto 8080.
 
-![Aplicación corriendo en dev](docs/img/sesion22/app_dev_corriendo.png)
+![Aplicación corriendo en dev](img/sesion22/app_dev_corriendo.png)
 
 ---
 
@@ -34,7 +34,7 @@ Resultado esperado:
 {"environment":"DEV","version":"1.0.0","message":"Entorno de desarrollo activo"}
 ```
 
-![Configuración dev](docs/img/sesion22/config_dev.png)
+![Configuración dev](img/sesion22/config_dev.png)
 
 ---
 
@@ -54,7 +54,7 @@ http://localhost:8080/deploy/health
 
 Resultado: el servicio responde correctamente con estado `OK` y muestra el entorno activo `DEV`.
 
-![Health dev](docs/img/sesion22/health_dev.png)
+![Health dev](img/sesion22/health_dev.png)
 
 ---
 
@@ -74,7 +74,7 @@ http://localhost:8080/deploy/checklist
 
 Resultado: se muestra la lista de validaciones realizadas para el despliegue.
 
-![Checklist dev](docs/img/sesion22/checklist_dev.png)
+![Checklist dev](img/sesion22/checklist_dev.png)
 
 ---
 
@@ -88,7 +88,7 @@ Comando ejecutado:
 
 Resultado: `BUILD SUCCESS`, con las pruebas ejecutadas correctamente.
 
-![Pruebas MockMvc](docs/img/sesion22/test_build_success.png)
+![Pruebas MockMvc](img/sesion22/test_build_success.png)
 
 ---
 
@@ -102,7 +102,7 @@ Comando ejecutado:
 
 Resultado: se generó correctamente el archivo `.jar` dentro de la carpeta `target`.
 
-![Empaquetado correcto](docs/img/sesion22/package_build_success.png)
+![Empaquetado correcto](img/sesion22/package_build_success.png)
 
 ---
 
@@ -116,7 +116,7 @@ docker run --name demoapi-sesion22 -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod d
 
 Resultado: la aplicación se ejecutó correctamente dentro del contenedor Docker usando el perfil `prod`.
 
-![Docker run prod](docs/img/sesion22/docker_run_prod.png)
+![Docker run prod](img/sesion22/docker_run_prod.png)
 
 ---
 
@@ -140,7 +140,7 @@ Resultado esperado:
 {"version":"1.0.0","message":"Entorno de produccion activo","environment":"PROD"}
 ```
 
-![Configuración prod](docs/img/sesion22/config_prod.png)
+![Configuración prod](img/sesion22/config_prod.png)
 
 ---
 
@@ -160,7 +160,7 @@ http://localhost:8080/deploy/health
 
 Resultado: el servicio responde correctamente con estado `OK` y muestra el entorno activo `PROD`.
 
-![Health prod](docs/img/sesion22/health_prod.png)
+![Health prod](img/sesion22/health_prod.png)
 
 ---
 
@@ -174,7 +174,7 @@ docker compose up --build
 
 Resultado: Docker Compose construyó la imagen y recreó el contenedor `demoapi-sesion22` correctamente.
 
-![Docker Compose](docs/img/sesion22/docker_compose_up.png)
+![Docker Compose](img/sesion22/docker_compose_up.png)
 
 ---
 
@@ -194,7 +194,7 @@ http://localhost:8080/deploy/checklist
 
 Resultado: el endpoint responde correctamente desde el contenedor ejecutado con Docker Compose.
 
-![Checklist Docker Compose](docs/img/sesion22/compose_checklist.png)
+![Checklist Docker Compose](img/sesion22/compose_checklist.png)
 
 ---
 
@@ -208,7 +208,7 @@ docker ps
 
 Resultado: se verificó que el contenedor `demoapi-sesion22` se encuentra activo y exponiendo el puerto 8080.
 
-![Docker ps](docs/img/sesion22/docker_ps.png)
+![Docker ps](img/sesion22/docker_ps.png)
 
 ---
 
@@ -240,7 +240,7 @@ Resultado esperado:
 1.0.0
 ```
 
-![Endpoint versión](docs/img/sesion22/version_endpoint.png)
+![Endpoint versión](img/sesion22/version_endpoint.png)
 
 ---
 
@@ -256,7 +256,7 @@ Comando ejecutado:
 
 Resultado: `BUILD SUCCESS`, confirmando que las pruebas automatizadas se ejecutaron correctamente.
 
-![Prueba endpoint versión](docs/img/sesion22/version_test_success.png)
+![Prueba endpoint versión](img/sesion22/version_test_success.png)
 
 
 ## Conclusión
