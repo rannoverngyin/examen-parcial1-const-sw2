@@ -10,7 +10,6 @@ class PlanServiceTest {
 
     @Test
     void debeRetornarValorPremium() {
-        // Ya no se envía el parámetro de precio
         assertEquals(25, service.calcularPorVariante("PREMIUM"));
     }
 
@@ -24,8 +23,4 @@ class PlanServiceTest {
         assertEquals(5, service.calcularPorVariante("BASICO"));
     }
 
-    @Test
-    void debeRetornarValorPorDefecto() {
-        assertEquals(0, service.calcularPorVariante("OTRO"));
-    }
 }

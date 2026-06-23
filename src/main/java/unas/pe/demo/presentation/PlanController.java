@@ -13,13 +13,13 @@ public class PlanController {
         this.services = services;
     }
 
-    // Endpoint para calcular el valor de la variante actual configurada
+    // 
     @GetMapping("/plan/valor-final")
     public int obtenerValorFinal() {
         return services.calcularPrecioFinal();
     }
 
-    // Endpoint para comprobar qué variante está activa
+    // 
     @GetMapping("/plan/variante-activa")
     public String obtenerVariante() {
         return services.obtenerVarianteActiva();
