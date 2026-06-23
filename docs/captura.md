@@ -1,17 +1,47 @@
-18. Evidencia de entrega
+=====================================================================
+            PRUEBAS MANUALES - SESIÓN 21: INTERNACIONALIZACIÓN
+=====================================================================
 
-•	Captura de terminal con BUILD SUCCESS.
-![alt text](image-2.png)
-•	Captura de target/site/jacoco/index.html.
-![alt text](image-4.png)
-•	Captura de pruebas agregadas en el editor.
-![alt text](image-3.png)
-•	Commit en GitHub o Pull Request.
+--- 1. ENDPOINTS BASE (QUERY PARAMS) ---
 
-•	Breve interpretación: qué método tenía menor cobertura y cómo se mejoró.
+# Saludo en Español
+curl.exe 'http://localhost:8080/i18n/saludo?lang=es'
 
-Estado Inicial (Baja Cobertura): Al principio, solo se probaba el "camino feliz" de cobertura alta. JaCoCo marcaba en rojo los flujos de cobertura MEDIA, BAJA y en amarillo las excepciones no auditadas. El método esAceptable no tenía ninguna prueba.
+# Saludo en Inglés
+curl.exe 'http://localhost:8080/i18n/saludo?lang=en'
 
-Estrategia Aplicada: Se expandió el banco de pruebas con JUnit 5 usando particiones de equivalencia y análisis de límites. Se añadieron aserciones para los retornos esperados (assertEquals) y se validaron los flujos de error y excepciones (assertThrows).  
+# Curso en Español
+curl.exe 'http://localhost:8080/i18n/curso?lang=es'
 
-Impacto y Calidad: Tras ejecutar Maven, el proyecto superó con éxito el Quality Gate mínimo del 70% configurado en el pom.xml. Se alcanzó un 100% de cobertura en instrucciones y ramas (Branch Coverage), garantizando que todo el código está protegido contra futuros errores.  
+# Curso en Inglés
+curl.exe 'http://localhost:8080/i18n/curso?lang=en'
+
+# Idioma en Español
+curl.exe 'http://localhost:8080/i18n/idioma?lang=es'
+
+# Idioma en Inglés
+curl.exe 'http://localhost:8080/i18n/idioma?lang=en'
+
+
+--- 2. EJERCICIO APLICADO (EVALUACIÓN) ---
+
+# Evaluación en Español
+curl.exe 'http://localhost:8080/i18n/evaluacion?lang=es'
+
+# Evaluación en Inglés
+curl.exe 'http://localhost:8080/i18n/evaluacion?lang=en'
+
+
+--- 3. RETO OPCIONAL (CABECERA ACCEPT-LANGUAGE) ---
+
+# Cabecera en Español
+curl.exe -H "Accept-Language: es" 'http://localhost:8080/i18n/saludo-header'
+
+# Cabecera en Inglés
+curl.exe -H "Accept-Language: en" 'http://localhost:8080/i18n/saludo-header'
+
+
+--- 4. PRUEBAS AUTOMATIZADAS ---
+
+# Ejecución de pruebas con MockMvc en Windows PowerShell
+.\mvnw.cmd test
