@@ -66,8 +66,3 @@ docker compose down
 | Typo `app.envirroment` en `DeploymentValidationService.java` | Corregido a `app.environment` |
 | Puerto 8080 ocupado por proceso anterior | `taskkill /PID <pid> /F` |
 | `.dockerignore` excluía `target/` | Cambiado a `target/*` + `!target/*.jar` |
-
-
-
-git checkout -b feature/sesion22-validacion-despliegue_tapullima-meselemias
-git push -u origin feature/sesion22-validacion-despliegue_tapullima-meselemias
