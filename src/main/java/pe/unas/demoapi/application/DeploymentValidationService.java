@@ -7,13 +7,13 @@ import java.util.Map;
 
 @Service
 public class DeploymentValidationService {
-    @Value("${app.environment}")
+    @Value("${app.environment:local}")
     private String environment;
 
     @Value("${app.version}")
     private String version;
 
-    @Value("${app.message}")
+    @Value("${app.message:local}")
     private String message;
 
     public Map<String, String> config() {
