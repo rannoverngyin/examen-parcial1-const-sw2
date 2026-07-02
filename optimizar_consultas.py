@@ -1,10 +1,11 @@
 import sqlite3
 import time
 
+# Establecer conexión con la base de datos local
 conn = sqlite3.connect("universidad.db")
 cur = conn.cursor()
 
-# 1. Inyección de índices optimizados (Simples y Compuestos)
+# 1. Definición e inyección de índices estructurados (Simples y Compuestos)
 indices = [
     "CREATE INDEX IF NOT EXISTS idx_estudiantes_codigo ON estudiantes(codigo)",
     "CREATE INDEX IF NOT EXISTS idx_estudiantes_escuela ON estudiantes(escuela)",
@@ -19,7 +20,7 @@ for idx in indices:
 conn.commit()
 print("Índices creados con éxito.\n")
 
-# 2. Diccionario de consultas incluyendo la Q4 (Reto Aplicado)
+# 2. Diccionario de sentencias SQL (Incluye el Reto Aplicado de evaluación)
 consultas = {
     "Q1_busqueda_codigo": """
         SELECT * FROM estudiantes WHERE codigo = '202600120'
@@ -44,14 +45,22 @@ consultas = {
 }
 
 print("=== MEDICIÓN POST-OPTIMIZACIÓN (CON ÍNDICES) ===")
+
+# Evaluación del impacto de los índices en la latencia y planes de ejecución
 for nombre, sql in consultas.items():
+    # Medición de tiempo de CPU de alta precisión
     inicio = time.perf_counter()
     resultados = cur.execute(sql).fetchall()
     fin = time.perf_counter()
+    
+    # Imprimir métricas post-optimización
     print(f"{nombre}: {len(resultados)} filas | {fin - inicio:.6f} segundos")
+    
+    # Inspección técnica del nuevo Plan de Ejecución (Uso de índices vs Escaneo)
     print("PLAN:")
     for row in cur.execute("EXPLAIN QUERY PLAN " + sql):
         print(f"  {row}")
     print("-" * 60)
 
+# Liberar recursos de infraestructura
 conn.close()
