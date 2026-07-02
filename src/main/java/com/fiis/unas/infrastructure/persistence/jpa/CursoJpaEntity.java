@@ -1,0 +1,50 @@
+package com.fiis.unas.infrastructure.persistence.jpa;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "cursos")
+public class CursoJpaEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "codigo")
+    private String codigo;
+
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "ciclo")
+    private Integer ciclo;
+
+    @Column(name = "creditos")
+    private Integer creditos;
+
+    @Column(name = "docente")
+    private String docente;
+
+    public CursoJpaEntity() {}
+
+    public CursoJpaEntity(String codigo, String nombre, Integer ciclo, Integer creditos, String docente) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.ciclo = ciclo;
+        this.creditos = creditos;
+        this.docente = docente;
+    }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getCodigo() { return codigo; }
+    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public Integer getCiclo() { return ciclo; }
+    public void setCiclo(Integer ciclo) { this.ciclo = ciclo; }
+    public Integer getCreditos() { return creditos; }
+    public void setCreditos(Integer creditos) { this.creditos = creditos; }
+    public String getDocente() { return docente; }
+    public void setDocente(String docente) { this.docente = docente; }
+}

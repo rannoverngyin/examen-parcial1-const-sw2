@@ -1,0 +1,32 @@
+# Documento guía original
+Guia_Practica_Sesion25_ORM_vs_SQL_Python.docx
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+*.log
+*.timestamp
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# H2 database files
+fiis.db
+fiis.mv.db
+fiis.trace.db
+
+# Temporary
+cp.txt
