@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Python lab session
+sesion25_orm_sql_python/.venv/
+sesion25_orm_sql_python/__pycache__/
+sesion25_orm_sql_python/fiis.db
+sesion25_orm_sql_python/*.pyc
