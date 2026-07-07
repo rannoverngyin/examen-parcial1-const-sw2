@@ -28,3 +28,5 @@ Responder: ¿cuándo conviene ORM y cuándo SQL directo?
 ![alt text](image-1.png)
 
 - Commit de Git
+
+![alt text](image-3.png)
