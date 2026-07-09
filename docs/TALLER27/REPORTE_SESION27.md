@@ -8,7 +8,7 @@
 - Dataset: lista simulada de 5 productos.
 - Repeticiones: 5 llamadas de calentamiento y 30 mediciones por endpoint.
 - Equipo/entorno: Windows, Java 17, Spring Boot, Chrome DevTools y Java Flight Recorder.
-- Commit evaluado: completar después del commit final.
+- Commit evaluado: Agrega pruebas de rendimiento frontend y backend.
 
 ## 2. Hipótesis inicial
 
