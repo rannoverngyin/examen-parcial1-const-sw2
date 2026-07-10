@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pruebas de rendimiento - Sesión 27</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        header {
+            background: #173f67;
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 0;
+            color: #dbeafe;
+        }
+
+        main {
+            width: min(900px, calc(100% - 32px));
+            margin: 32px auto;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .botones {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.15s ease, opacity 0.15s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            cursor: wait;
+            opacity: 0.65;
+            transform: none;
+        }
+
+        .boton-base {
+            background: #dc2626;
+            color: white;
+        }
+
+        .boton-optimizado {
+            background: #15803d;
+            color: white;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .resultado-titulo {
+            background: #e2e8f0;
+            padding: 12px 16px;
+            font-weight: 700;
+        }
+
+        pre {
+            min-height: 170px;
+            margin: 0;
+            padding: 18px;
+            overflow-x: auto;
+            background: #0f172a;
+            color: #e2e8f0;
+            font-family: Consolas, monospace;
+            line-height: 1.6;
+        }
+
+        .explicacion {
+            margin-top: 20px;
+            padding: 16px;
+            border-left: 5px solid #173f67;
+            background: #eff6ff;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 650px) {
+            .botones {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Comparación de rendimiento</h1>
+    <p>Construcción de Software II · Sesión 27</p>
+</header>
+
+<main>
+    <section class="panel">
+        <h2>Consulta de productos</h2>
+
+        <p>
+            Selecciona una versión para medir el tiempo percibido desde el
+            navegador.
+        </p>
+
+        <div class="botones">
+            <button
+                class="boton-base"
+                onclick="probar('base')">
+                Probar versión base
+            </button>
+
+            <button
+                class="boton-optimizado"
+                onclick="probar('optimizado')">
+                Probar versión optimizada
+            </button>
+        </div>
+
+        <div class="resultado">
+            <div class="resultado-titulo">Resultado de la medición</div>
+
+            <pre id="resultado">Todavía no se ha realizado ninguna medición.</pre>
+        </div>
+
+        <div class="explicacion">
+            La versión base incluye un retraso controlado de 200 ms.
+            La versión optimizada reutiliza una respuesta previamente preparada.
+        </div>
+    </section>
+</main>
+
+<script>
+    async function probar(version) {
+        const resultado = document.getElementById("resultado");
+        const botones = document.querySelectorAll("button");
+
+        botones.forEach(boton => boton.disabled = true);
+
+        resultado.textContent = `Midiendo versión ${version}...`;
+
+        const inicio = performance.now();
+
+        try {
+            const respuesta = await fetch(
+                `/rendimiento/productos/${version}`,
+                {
+                    method: "GET",
+                    cache: "no-store"
+                }
+            );
+
+            const datos = await respuesta.json();
+
+            const tiempo = performance.now() - inicio;
+
+            resultado.textContent =
+                `versión: ${version}\n` +
+                `estado HTTP: ${respuesta.status}\n` +
+                `tiempo percibido: ${tiempo.toFixed(2)} ms\n` +
+                `cantidad de productos: ${datos.length}\n` +
+                `datos: ${JSON.stringify(datos, null, 2)}`;
+
+        } catch (error) {
+            const tiempo = performance.now() - inicio;
+
+            resultado.textContent =
+                `versión: ${version}\n` +
+                `resultado: ERROR\n` +
+                `tiempo: ${tiempo.toFixed(2)} ms\n` +
+                `detalle: ${error.message}`;
+
+        } finally {
+            botones.forEach(boton => boton.disabled = false);
+        }
+    }
+</script>
+
+</body>
+</html>
