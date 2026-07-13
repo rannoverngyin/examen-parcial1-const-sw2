@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/carga")
+@RequestMapping("/carga-s28")
 public class CargaController {
 
     private final CargaService cargaService;
