@@ -30,3 +30,9 @@ __pycache__/
 *.iml
 .metadata/
 src/main/.metadata/
+docs_sesion27/
+docs_sesion28/
+
+app.log
+app.err
+
