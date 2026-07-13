@@ -1,0 +1,27 @@
+
+         /\      Grafana   /窶ｾ窶ｾ/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   窶ｾ窶ｾ\ 
+  /          \   |   (  |  (窶ｾ)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: escenarios-avanzados.js
+        output: -
+
+     scenarios: (100.00%) 3 scenarios, 105 max VUs, 2m50s max duration (incl. graceful stop):
+              * consultas: Up to 25 looping VUs for 2m40s over 5 stages (gracefulRampDown: 10s, exec: consultarProductos, gracefulStop: 30s)
+              * registros: 5.00 iterations/s for 2m0s (maxVUs: 5-30, exec: registrarProducto, startTime: 20s, gracefulStop: 30s)
+              * pico_reportes: Up to 20.00 iterations/s for 45s over 3 stages (maxVUs: 10-50, exec: consultarReporte, startTime: 1m20s, gracefulStop: 30s)
+
+
+running (0m01.0s), 000/040 VUs, 0 complete and 0 interrupted iterations
+consultas       [   1% ] 00/25 VUs  0m01.0s/2m40.0s
+registros     窶｢ [   0% ] waiting    19.0s
+pico_reportes 窶｢ [   0% ] waiting    1m19.0s
+
+running (0m02.0s), 000/040 VUs, 0 complete and 0 interrupted iterations
+consultas       [   1% ] 00/25 VUs  0m02.0s/2m40.0s
+registros     窶｢ [   0% ] waiting    18.0s
+pico_reportes 窶｢ [   0% ] waiting    1m18.0s
