@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rendimiento S27</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    button { margin: 6px; padding: 10px 16px; cursor: pointer; font-weight: bold; }
+    .btn-base { background-color: #ffcccc; border: 1px solid #cc0000; }
+    .btn-opt { background-color: #ccffcc; border: 1px solid #00cc00; }
+    pre { background: #eef4f8; padding: 14px; border-radius: 8px; overflow-x: auto; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <h1>Comparación de Rendimiento - FIIS UNAS</h1>
+  <button class="btn-base" onclick="probar('base')">Probar versión base</button>
+  <button class="btn-opt" onclick="probar('optimizado')">Probar versión optimizada</button>
+  <h3>Resultado de la última petición:</h3>
+  <pre id="resultado">Sin medición</pre>
+
+  <script>
+    async function probar(version) {
+      const inicio = performance.now();
+      try {
+        const respuesta = await fetch(`/rendimiento/productos/${version}`);
+        const datos = await respuesta.json();
+        const tiempo = performance.now() - inicio;
+        
+        document.getElementById('resultado').textContent =
+          `Versión:     ${version}\n` +
+          `Status:      ${respuesta.status}\n` +
+          `Tiempo:      ${tiempo.toFixed(2)} ms\n` +
+          `Datos:       ${JSON.stringify(datos)}`;
+      } catch (error) {
+        document.getElementById('resultado').textContent = `Error en la petición: ${error}`;
+      }
+    }
+  </script>
+</body>
+</html>
