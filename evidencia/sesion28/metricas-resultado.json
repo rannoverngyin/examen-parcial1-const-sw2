@@ -1,0 +1,17 @@
+{
+  "ejecucion": "resultado",
+  "p50_ms": 26.0182,
+  "p95_ms": 36.53351,
+  "p99_ms": 37.150406000000004,
+  "rps": 16.663254526074464,
+  "errores_porcentaje": 0,
+  "checks_porcentaje": 100,
+  "solicitudes": 1183,
+  "vus_maximos": 30,
+  "duracion_segundos": 70.9945346,
+  "threshold_latencia": "CUMPLE",
+  "threshold_errores": "CUMPLE",
+  "threshold_checks": "CUMPLE",
+  "cpu_pico": "Registrar con JMC",
+  "memoria_pico": "Registrar con JMC"
+}

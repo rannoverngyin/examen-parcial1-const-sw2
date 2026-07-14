@@ -1,0 +1,20 @@
+
+==================================================
+MÉTRICAS PARA LA TABLA DEL WORD
+==================================================
+Ejecución       : resultado
+p50             : 26.02 ms
+p95             : 36.53 ms
+p99             : 37.15 ms
+RPS             : 16.66 req/s
+Errores         : 0.00 %
+Checks          : 100.00 %
+Peticiones      : 1183
+VUs máximos     : 30
+Duración        : 70.99 s
+Latencia        : CUMPLE
+Errores         : CUMPLE
+Checks          : CUMPLE
+CPU pico        : Registrar con JMC
+Memoria pico    : Registrar con JMC
+==================================================
