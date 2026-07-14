@@ -1,4 +1,7 @@
-$javaPid = (Get-Process java | Where-Object { $_.WorkingSet64 -gt 50MB }).Id | Select-Object -First 1
+$javaPid = (Get-NetTCPConnection -LocalPort 8080 -State Listen -ErrorAction SilentlyContinue).OwningProcess
+if (-not $javaPid) {
+    $javaPid = (Get-Process java | Where-Object { $_.WorkingSet64 -gt 50MB }).Id | Select-Object -First 1
+}
 Write-Output "Monitoreando Java PID: $javaPid"
 
 $logFile = "C:\Users\ZUZUKA\examen-parcial1-const-sw2\scripts\metrics-log.csv"
