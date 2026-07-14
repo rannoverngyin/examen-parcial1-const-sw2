@@ -9,14 +9,15 @@ Comparar consultas ORM y SQL directo.
 
 ## 3. Resultados
 
+
 ![alt text](image.png)
 
-con  crear_indice.py
 
-![alt text](image-2.png)
 
 ## 4. Interpretación
 Responder: ¿cuándo conviene ORM y cuándo SQL directo?
+
+El **ORM** conviene cuando se busca desarrollar aplicaciones de forma rápida, con un código más organizado y fácil de mantener. El **SQL directo** conviene cuando se necesita un mayor rendimiento o realizar consultas complejas que requieren una optimización específica.
 
 ## 5. Evidencias
 - Captura de benchmark_queries.py
@@ -30,3 +31,23 @@ Responder: ¿cuándo conviene ORM y cuándo SQL directo?
 - Commit de Git
 
 ![alt text](image-3.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SQL directo envía la consulta directamente a la base de datos.
+ORM primero genera la consulta SQL y, cuando recibe los resultados, los convierte en objetos de Python. Esa conversión agrega un pequeño tiempo adicional (sobrecarga).
