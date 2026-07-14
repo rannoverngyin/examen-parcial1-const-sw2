@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rendimiento S27 - FIIS UNAS</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 850px; margin: 40px auto; color: #2c3e50; }
+    h1 { color: #1a5276; }
+    .card { background: #f8f9f9; border: 1px solid #d5dbdb; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+    button { margin: 6px; padding: 10px 16px; background: #2980b9; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    button:hover { background: #1f618d; }
+    button.opt { background: #27ae60; }
+    button.opt:hover { background: #1e8449; }
+    button.reto { background: #8e44ad; }
+    button.reto:hover { background: #6c3483; }
+    pre { background: #eef4f8; padding: 14px; border-radius: 8px; overflow-x: auto; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Comparación de rendimiento - Sesión 27</h1>
+  
+  <div class="card">
+    <h3>Prueba Estándar (Sin parámetro cantidad)</h3>
+    <button onclick="probar('base')">Probar versión BASE (~200ms)</button>
+    <button class="opt" onclick="probar('optimizado')">Probar versión OPTIMIZADA (Inmediato)</button>
+  </div>
+
+  <div class="card">
+    <h3>Reto Aplicado (Evaluación de Escala con parámetro cantidad)</h3>
+    <button class="reto" onclick="probar('base?cantidad=1000')">Base (1,000 ítems)</button>
+    <button class="reto" onclick="probar('optimizado?cantidad=1000')">Optimizado (1,000 ítems)</button>
+    <button class="reto" onclick="probar('base?cantidad=10000')">Base (10,000 ítems)</button>
+    <button class="reto" onclick="probar('optimizado?cantidad=10000')">Optimizado (10,000 ítems)</button>
+  </div>
+
+  <pre id="resultado">Sin medición</pre>
+
+  <script>
+    async function probar(endpoint) {
+      document.getElementById('resultado').textContent = "Midiendo latencia de /rendimiento/productos/" + endpoint + "...";
+      const inicio = performance.now();
+      try {
+        const respuesta = await fetch(`/rendimiento/productos/${endpoint}`);
+        const datos = await respuesta.json();
+        const tiempo = performance.now() - inicio;
+        document.getElementById('resultado').textContent =
+          `endpoint=${endpoint}\n` +
+          `status=${respuesta.status}\n` +
+          `tiempo=${tiempo.toFixed(2)} ms\n` +
+          `total_elementos=${datos.length}\n` +
+          `muestra_datos=${JSON.stringify(datos.slice(0, 5))} ...`;
+      } catch (error) {
+        document.getElementById('resultado').textContent = `Error al consultar: ${error.message}`;
+      }
+    }
+  </script>
+</body>
+</html>
