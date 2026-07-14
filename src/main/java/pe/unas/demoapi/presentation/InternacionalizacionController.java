@@ -1,4 +1,4 @@
-package pe.unas.demoapi.presentation;
+/*package pe.unas.demoapi.presentation;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -41,3 +41,4 @@ public class InternacionalizacionController {
         return service.obtenerMensaje("evaluacion", lang);
     }
 }
+*/

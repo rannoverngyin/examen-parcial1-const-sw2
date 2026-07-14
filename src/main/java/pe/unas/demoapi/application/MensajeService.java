@@ -1,4 +1,4 @@
-package pe.unas.demoapi.application;
+/*package pe.unas.demoapi.application;
 
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
@@ -22,3 +22,4 @@ public class MensajeService {
         return messageSource.getMessage(clave, null, locale);
     }
 }
+*/
