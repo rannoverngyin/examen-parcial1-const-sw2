@@ -7,6 +7,11 @@
 **Sesión:** 27  
 **Tema:** Pruebas de rendimiento en frontend y backend  
 
+
+## cuello de botella 
+
+También sirve para comprobar que el cuello de botella está en el backend. En tus resultados, la versión base tuvo un p95 de 229.68 ms, mientras que la optimizada tuvo 29.31 ms.
+
 ---
 
 ## 1. Escenario de prueba
