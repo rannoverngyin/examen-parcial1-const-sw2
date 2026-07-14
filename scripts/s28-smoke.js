@@ -1,0 +1,22 @@
+import http from 'k6/http';
+import { check, sleep } from 'k6';
+
+export const options = {
+  vus: 1,
+  duration: '10s',
+  thresholds: {
+    http_req_failed: ['rate<0.01'],
+    http_req_duration: ['p(95)<500'],
+    checks: ['rate>0.99'],
+  },
+};
+
+export default function () {
+  const baseUrl = __ENV.API_URL || 'http://localhost:8080';
+  const res = http.get(`${baseUrl}/carga/productos`);
+  check(res, {
+    'status 200': (r) => r.status === 200,
+    'respuesta JSON': (r) => r.headers['Content-Type']?.includes('json'),
+  });
+  sleep(1);
+}
