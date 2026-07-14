@@ -72,7 +72,7 @@ El monitoreo de recursos del proceso Java (PID 5700) registrado en [recursos.txt
   - *Interpretación:* Durante los 160 segundos de la prueba, el proceso consumió un total acumulado de 6.29 segundos de tiempo de CPU. Esto representa un promedio de utilización de CPU muy bajo (~3.9% de un solo núcleo), confirmando que el backend operó con un margen de holgura sumamente alto.
 
 ## 7. Cuello de botella e hipótesis
-A pesar del excelente desempeño del backend, la latencia promedio del endpoint de reporte (`/carga/productos/reporte`) se sitúa de forma constante en **122.57 ms** con un p(95) de **124.30 ms**. 
+A pesar del excelente desempeño del backend, la latencia promedio del endpoint de reporte (`/carga/productos/reporte`) se sitúa de forma constante en **122.57 ms** con un p(95) de **124.30 ms**.
 
 **Diagnóstico:**
 Este comportamiento no es un cuello de botella físico del sistema, sino que se debe enteramente al retardo simulado mediante `Thread.sleep(120)` en la clase `CargaProductoService.java`. Sin embargo, en una aplicación productiva real, este tipo de operaciones bloqueantes son críticas: si la tasa de solicitudes de reportes aumentara por encima del límite de hilos activos de Tomcat (por defecto 200), el pool de hilos se saturaría rápidamente, elevando los tiempos de espera y provocando caídas en los demás endpoints rápidos de la aplicación (listado y total).
@@ -104,7 +104,7 @@ Este comportamiento no es un cuello de botella físico del sistema, sino que se 
 Porque `constant-arrival-rate` simula un comportamiento de llegada abierta de peticiones (modelo abierto), en el que los usuarios envían solicitudes de manera constante e independiente del tiempo de respuesta del servidor (por ejemplo, transacciones de pago o búsquedas web reales). Si el servidor empieza a demorarse, las peticiones siguen llegando al mismo ritmo, lo que expone fallas en las colas de solicitudes. En contraste, `constant-vus` es un modelo cerrado donde cada usuario virtual espera a que finalice su petición anterior para realizar la siguiente; si el servidor se ralentiza, la tasa de llegada de peticiones disminuye artificialmente, ocultando cuellos de botella reales de acumulación de colas.
 
 ### • ¿Qué diferencia existe entre un check fallido y un threshold incumplido?
-Un **check** es una aserción booleana de nivel funcional aplicada a una petición o respuesta específica (por ejemplo, validar si el código HTTP es 200). Su fallo no detiene la ejecución de k6 ni invalida el estado global de la prueba de carga. 
+Un **check** es una aserción booleana de nivel funcional aplicada a una petición o respuesta específica (por ejemplo, validar si el código HTTP es 200). Su fallo no detiene la ejecución de k6 ni invalida el estado global de la prueba de carga.
 Un **threshold** (umbral) es una métrica de nivel de servicio global que evalúa estadísticas completas (como el percentil 95 de duración de hilos, o el porcentaje de errores totales). Si se incumple un threshold, k6 marca todo el test como fallido en su estado de retorno de salida (exit code diferente de cero), lo cual detiene integraciones automáticas (pipelines de CI/CD).
 
 ### • ¿Qué significa que dropped_iterations aumente aunque el error HTTP sea bajo?
@@ -112,3 +112,38 @@ Significa que la carga programada (la tasa de llegada deseada) superó la capaci
 
 ### • ¿Qué escenario conviene repetir primero después de una optimización y por qué?
 Conviene repetir el escenario que representa el principal limitador o cuello de botella del sistema, que en este experimento es el de **pico de reportes** (`pico_reportes`). Al ser un escenario de modelo abierto con peticiones bloqueantes lentas (simulando 120ms de sleep), es el que tiene mayor propensión a agotar los recursos de Tomcat y el que genera mayor impacto en el rendimiento global. Probar este escenario de manera aislada permite comprobar inmediatamente si la latencia del percentil 95 disminuyó y si se evita la saturación de memoria o hilos del servidor tras implementar la optimización.
+
+---
+
+## 10. Reto Aplicado: Análisis Comparativo V1 vs V2
+
+### Configuración del Reto
+Se creó el script [escenarios-avanzados-v2.js](file:///c:/Users/51913/examen-parcial1-const-sw2-clone4/performance/sesion29/escenarios-avanzados-v2.js) en el cual se duplicó la tasa de llegada de solicitudes del endpoint de reporte:
+- Tasa inicial: 4 RPS (antes 2 RPS)
+- Tasa pico: 40 RPS (antes 20 RPS)
+- Hilos cliente (`preAllocatedVUs` / `maxVUs`): 20 / 100 (antes 10 / 50)
+El resto de escenarios (consultas y registros) y los umbrales se mantuvieron idénticos. Ambas versiones fueron ejecutadas dos veces para asegurar la consistencia y representatividad de las métricas.
+
+### Resultados Comparativos (Valores Representativos / Medianas)
+
+| Métrica / Escenario | Versión 1 (Pico 20 RPS) | Versión 2 (Pico 40 RPS) | Impacto / Diferencia |
+| :--- | :--- | :--- | :--- |
+| **Peticiones Reporte Completadas** | 614 | 1230 | +100.3% |
+| **Total Iteraciones (Test)** | 2327 | 2953 | +26.9% |
+| **p95 Latencia Reporte** | 124.65 ms | 124.27 ms | -0.3% (Estable) |
+| **p99 Latencia Reporte** | 144.93 ms | 149.30 ms | +3.0% |
+| **Tasa de Errores HTTP** | 0.00% | 0.00% | Sin cambios |
+| **Dropped Iterations** | 0 | 0 | Sin cambios |
+| **Consumo CPU Neto** | 6.54 s | 5.16 s | -21.1% (Efecto JIT Compiler) |
+| **Memoria RAM Máxima** | 135.73 MB | 136.21 MB | +0.4% (+0.48 MB) |
+
+### Análisis de Resultados e Interpretación
+1. **Comportamiento de Latencia y Estabilidad:** A pesar de haber duplicado el pico de carga en reportes de 20 RPS a 40 RPS, el percentil 95 de latencia se mantuvo prácticamente idéntico (alrededor de 124 ms). Esto indica que el backend no ha alcanzado su límite de capacidad en absoluto, y el tiempo de respuesta está dominado casi en su totalidad por el retardo artificial de 120 ms.
+2. **Dropped Iterations e Hilos:** No se registraron `dropped_iterations` en ninguna versión. La cantidad de VUs preasignados y máximos (20/100 para V2) fue adecuada para absorber el tráfico generado sin saturación del generador de carga k6.
+3. **Consumo de CPU y Efecto JIT Warm-up:** Se observó que el consumo neto de CPU disminuyó de 6.54s a 5.16s en V2. Esto es una consecuencia directa del proceso de "warm-up" de la Java Virtual Machine (JVM). Al ejecutarse V2 inmediatamente después de V1 sobre el mismo proceso PID, el compilador JIT (Just-In-Time) ya había optimizado las rutas calientes del código (la manipulación de colecciones concurrentes y el mapeo JSON), resultando en una ejecución mucho más eficiente con menor tiempo de procesador en la segunda fase.
+4. **Crecimiento de Memoria:** La memoria RAM máxima utilizada aumentó muy ligeramente (+0.48 MB) debido a que la colección `CopyOnWriteArrayList` en memoria almacenó más registros de productos generados por el escenario de registros que estuvo activo durante más tiempo acumulativo en la JVM.
+
+### Propuesta de Única Mejora y Métrica Esperada
+- **Mejora:** Implementar un **Caché en Memoria con expiración temporal corta (ej. TTL de 2 segundos)** para el endpoint `/carga/productos/reporte` utilizando la anotación `@Cacheable` de Spring Boot.
+- **Justificación:** Dado que el reporte solo devuelve el tamaño de la lista de productos (un cálculo muy ligero que cambia a una frecuencia baja de 5 registros/s), no es necesario recalcular el reporte en cada una de las 40 peticiones por segundo concurrentes. Al cachear el resultado por 2 segundos, el 98% de las solicitudes se resolverán inmediatamente desde la memoria sin ejecutar el método bloqueante simulado con retardo de 120 ms.
+- **Métrica esperada que debería cambiar:** La latencia de reportes **p(95) y p(99) debería caer de ~124 ms a < 5 ms** (casi instantáneo), y el rendimiento/capacidad de reportes concurrentes podría escalar a miles de RPS sin consumir hilos adicionales de Tomcat.
