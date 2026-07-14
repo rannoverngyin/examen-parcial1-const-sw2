@@ -1,0 +1,149 @@
+{
+    "metrics": {
+        "iteration_duration": {
+            "min": 1000.4013,
+            "med": 1001.6652,
+            "max": 1019.0583,
+            "p(90)": 1001.9727800000001,
+            "p(95)": 1002.0612199999999,
+            "p(99)": 1002.3345780000001,
+            "avg": 1001.6618925412542
+        },
+        "http_req_blocked": {
+            "min": 0,
+            "med": 0,
+            "max": 16.3139,
+            "p(90)": 0,
+            "p(95)": 0,
+            "p(99)": 0,
+            "avg": 0.014423498349834984
+        },
+        "http_req_connecting": {
+            "p(95)": 0,
+            "p(99)": 0,
+            "avg": 0.003498943894389439,
+            "min": 0,
+            "med": 0,
+            "max": 0.8735,
+            "p(90)": 0
+        },
+        "http_req_waiting": {
+            "avg": 0.7707893069306934,
+            "min": 0,
+            "med": 0.6873,
+            "max": 2.2273,
+            "p(90)": 1.2196600000000002,
+            "p(95)": 1.37321,
+            "p(99)": 1.7090499999999997
+        },
+        "data_sent": {
+            "rate": 1512.1933456275076,
+            "count": 136350
+        },
+        "http_req_duration": {
+            "avg": 1.305826138613861,
+            "min": 0,
+            "med": 1.3172,
+            "max": 2.452,
+            "p(90)": 1.54018,
+            "p(95)": 1.6034499999999996,
+            "p(99)": 1.8713579999999999,
+            "thresholds": {
+                "p(95)<1000": false
+            }
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 1515,
+            "thresholds": {
+                "rate<0.05": false
+            },
+            "value": 0
+        },
+        "http_req_tls_handshaking": {
+            "p(90)": 0,
+            "p(95)": 0,
+            "p(99)": 0,
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0
+        },
+        "vus_max": {
+            "value": 20,
+            "min": 20,
+            "max": 20
+        },
+        "data_received": {
+            "count": 236340,
+            "rate": 2621.135132421013
+        },
+        "vus": {
+            "value": 1,
+            "min": 1,
+            "max": 20
+        },
+        "http_req_sending": {
+            "p(90)": 0,
+            "p(95)": 0,
+            "p(99)": 0,
+            "avg": 0.0026514851485148518,
+            "min": 0,
+            "med": 0,
+            "max": 0.7652
+        },
+        "iterations": {
+            "count": 1515,
+            "rate": 16.802148284750086
+        },
+        "http_req_receiving": {
+            "max": 1.152,
+            "p(90)": 0.84292,
+            "p(95)": 0.9163899999999999,
+            "p(99)": 1.0172299999999994,
+            "avg": 0.5323853465346527,
+            "min": 0,
+            "med": 0.6215
+        },
+        "checks": {
+            "passes": 3030,
+            "fails": 0,
+            "value": 1
+        },
+        "http_reqs": {
+            "rate": 16.802148284750086,
+            "count": 1515
+        },
+        "http_req_duration{expected_response:true}": {
+            "max": 2.452,
+            "p(90)": 1.54018,
+            "p(95)": 1.6034499999999996,
+            "p(99)": 1.8713579999999999,
+            "avg": 1.305826138613861,
+            "min": 0,
+            "med": 1.3172
+        }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "optimizado status 200": {
+                    "name": "optimizado status 200",
+                    "path": "::optimizado status 200",
+                    "id": "05c46ce57bdcc9a74565d8ffc0df9c05",
+                    "passes": 1515,
+                    "fails": 0
+                },
+                "optimizado respuesta no vacia": {
+                    "passes": 1515,
+                    "fails": 0,
+                    "name": "optimizado respuesta no vacia",
+                    "path": "::optimizado respuesta no vacia",
+                    "id": "c81097c8fb19f4d9fabad685ff346281"
+                }
+            }
+    }
+}
