@@ -1,0 +1,48 @@
+﻿
+RESULTADOS POR EJECUCIÓN
+-----------------------------------------------------------------------------------------------
+Versión     Run           p95 ms      p99 ms         RPS     Errores %      Checks %
+-----------------------------------------------------------------------------------------------
+baseline    run1            2.75        4.08       16.78          0.00        100.00
+baseline    run2            2.57        3.31       16.79          0.00        100.00
+baseline    run3            2.21        2.64       16.79          0.00        100.00
+optimizado  run1            2.39        3.02       16.77          0.00        100.00
+optimizado  run2            1.64        2.12       16.80          0.00        100.00
+optimizado  run3            1.56        1.89       16.81          0.00        100.00
+
+PROMEDIOS Y VARIABILIDAD
+============================================================
+
+Versión: baseline
+p95 promedio:       2.51 ms
+p95 desviación:     0.27 ms
+p99 promedio:       3.34 ms
+p99 desviación:     0.72 ms
+RPS promedio:       16.79
+RPS desviación:     0.00
+Error promedio:     0.00 %
+Checks exitosos:    100.00 %
+
+Versión: optimizado
+p95 promedio:       1.86 ms
+p95 desviación:     0.46 ms
+p99 promedio:       2.34 ms
+p99 desviación:     0.60 ms
+RPS promedio:       16.79
+RPS desviación:     0.02
+Error promedio:     0.00 %
+Checks exitosos:    100.00 %
+
+COMPARACIÓN FINAL
+============================================================
+Mejora del p95: 25.85 %
+Mejora del p99: 29.85 %
+Cambio en RPS:  0.03 %
+
+DECISIÓN TÉCNICA
+============================================================
+RECOMENDACIÓN: repetir el benchmark.
+Los resultados presentan demasiada variabilidad entre ejecuciones.
+
+CSV generado correctamente en:
+evidencia\sesion30\resumen_benchmark.csv

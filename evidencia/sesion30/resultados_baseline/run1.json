@@ -1,0 +1,159 @@
+{
+    "metrics": {
+        "http_req_tls_handshaking": {
+            "p(99)": 0,
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "iterations": {
+            "count": 1514,
+            "rate": 16.783898390802392
+        },
+        "http_reqs": {
+            "count": 1514,
+            "rate": 16.783898390802392
+        },
+        "vus": {
+            "min": 1,
+            "max": 20,
+            "value": 1
+        },
+        "http_req_waiting": {
+            "min": 0,
+            "med": 0.9384,
+            "max": 7.5823,
+            "p(90)": 1.9724700000000002,
+            "p(95)": 2.424999999999997,
+            "p(99)": 3.320259999999999,
+            "avg": 1.1699910171730494
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 1514,
+            "thresholds": {
+                "rate<0.05": false
+            },
+            "value": 0
+        },
+        "http_req_duration": {
+            "avg": 1.4598448480845423,
+            "min": 0,
+            "med": 1.4357,
+            "max": 7.5823,
+            "p(90)": 2.3156000000000003,
+            "p(95)": 2.7545,
+            "p(99)": 4.075939999999996,
+            "thresholds": {
+                "p(95)<1000": false
+            }
+        },
+        "http_req_sending": {
+            "max": 1.505,
+            "p(90)": 0,
+            "p(95)": 0,
+            "p(99)": 0,
+            "avg": 0.003491941875825627,
+            "min": 0,
+            "med": 0
+        },
+        "vus_max": {
+            "value": 20,
+            "min": 20,
+            "max": 20
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 1.4598448480845423,
+            "min": 0,
+            "med": 1.4357,
+            "max": 7.5823,
+            "p(90)": 2.3156000000000003,
+            "p(95)": 2.7545,
+            "p(99)": 4.075939999999996
+        },
+        "data_sent": {
+            "count": 133232,
+            "rate": 1476.9830583906105
+        },
+        "iteration_duration": {
+            "p(99)": 1005.022981,
+            "avg": 1002.091483223251,
+            "min": 1000.5292,
+            "med": 1001.9956500000001,
+            "max": 1020.8576,
+            "p(90)": 1002.92943,
+            "p(95)": 1003.378705
+        },
+        "checks": {
+            "passes": 4542,
+            "fails": 0,
+            "thresholds": {
+                "rate>0.99": false
+            },
+            "value": 1
+        },
+        "http_req_receiving": {
+            "avg": 0.2863618890356672,
+            "min": 0,
+            "med": 0,
+            "max": 1.5376,
+            "p(90)": 0.8911,
+            "p(95)": 1.0031700000000001,
+            "p(99)": 1.0437099999999997
+        },
+        "data_received": {
+            "rate": 19335.050946204356,
+            "count": 1744128
+        },
+        "http_req_blocked": {
+            "med": 0,
+            "max": 13.8409,
+            "p(90)": 0,
+            "p(95)": 0,
+            "p(99)": 0.5024719999999994,
+            "avg": 0.01824722589167768,
+            "min": 0
+        },
+        "http_req_connecting": {
+            "med": 0,
+            "max": 1.0839,
+            "p(90)": 0,
+            "p(95)": 0,
+            "p(99)": 0.38321599999999706,
+            "avg": 0.008235402906208718,
+            "min": 0
+        }
+    },
+    "root_group": {
+        "checks": {
+            "baseline responde HTTP 200": {
+                "name": "baseline responde HTTP 200",
+                "path": "::baseline responde HTTP 200",
+                "id": "60eecad885912b163643be39ac7e58c6",
+                "passes": 1514,
+                "fails": 0
+            },
+            "baseline devuelve contenido": {
+                "passes": 1514,
+                "fails": 0,
+                "name": "baseline devuelve contenido",
+                "path": "::baseline devuelve contenido",
+                "id": "b2a531c7cacfd686a845caf6e38c99f5"
+            },
+            "baseline devuelve JSON": {
+                "name": "baseline devuelve JSON",
+                "path": "::baseline devuelve JSON",
+                "id": "4ef0bec27ada41322d2b23edb08e8b28",
+                "passes": 1514,
+                "fails": 0
+            }
+        },
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {}
+    }
+}
