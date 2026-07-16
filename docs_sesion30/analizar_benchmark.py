@@ -3,7 +3,7 @@ import csv
 from pathlib import Path
 from statistics import mean, stdev
 
-BASE = Path('evidencia/sesion30')
+BASE = Path('docs_sesion30')
 
 def leer_metricas(carpeta, etiqueta):
     registros = []
