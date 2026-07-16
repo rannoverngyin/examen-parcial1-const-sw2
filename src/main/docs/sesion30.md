@@ -28,7 +28,8 @@
 ![alt text](image-8.png)
 
 >Tabla
-![alt text](image-9.png)
+![alt text](image-11.png)
 
 #### Reto opcional: gráfico comparativo
 ![alt text](../../../evidencia/sesion30/comparacion_benchmark.png)
+![alt text](../../../evidencia/sesion30/grafico_p95.png)

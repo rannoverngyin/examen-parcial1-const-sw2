@@ -1,27 +1,20 @@
-import pandas as pd
+import csv
 import matplotlib.pyplot as plt
-from pathlib import Path
 
-BASE = Path("evidencia/sesion30")
+versiones = []
+p95 = []
 
-# Leer el resumen generado anteriormente
-df = pd.read_csv(BASE / "resumen_benchmark.csv")
+with open('evidencia/sesion30/resumen_benchmark.csv', encoding='utf-8') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        versiones.append(row['version'] + '-' + row['run'])
+        p95.append(float(row['p95_ms']))
 
-# Promedios por versión
-promedios = df.groupby("version")[["p95_ms", "rps", "error_rate"]].mean()
-
-# Crear gráfico
-ax = promedios.plot(kind="bar", figsize=(8,5))
-
-plt.title("Comparación de métricas: Baseline vs Optimizado")
-plt.ylabel("Valor")
-plt.xlabel("Versión")
-plt.xticks(rotation=0)
-plt.grid(axis="y", linestyle="--", alpha=0.5)
-
-# Guardar imagen
+plt.figure(figsize=(8, 4))
+plt.bar(versiones, p95)
+plt.ylabel('p95 ms')
+plt.title('Comparación de p95 por ejecución')
+plt.xticks(rotation=45)
 plt.tight_layout()
-plt.savefig(BASE / "comparacion_benchmark.png")
-
-# Mostrar gráfico
-plt.show()
+plt.savefig('evidencia/sesion30/grafico_p95.png')
+print('Gráfico generado: evidencia/sesion30/grafico_p95.png')

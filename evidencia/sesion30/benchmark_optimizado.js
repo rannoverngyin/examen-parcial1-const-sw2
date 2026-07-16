@@ -7,6 +7,17 @@ export const options = {
         { duration: '1m', target: 20 },
         { duration: '15s', target: 0 }
     ],
+
+    summaryTrendStats: [
+        'avg',
+        'min',
+        'med',
+        'max',
+        'p(90)',
+        'p(95)',
+        'p(99)'
+    ],
+
     thresholds: {
         http_req_failed: ['rate<0.05'],
         http_req_duration: ['p(95)<1000']
@@ -14,7 +25,6 @@ export const options = {
 };
 
 export default function () {
-
     const res = http.get('http://localhost:8080/benchmark/optimizado');
 
     check(res, {
@@ -23,5 +33,4 @@ export default function () {
     });
 
     sleep(1);
-
 }
