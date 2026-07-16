@@ -49,6 +49,12 @@ Comparar el rendimiento de `/benchmark/baseline` y `/benchmark/optimizado` bajo 
 |---|---:|---:|---:|
 | **p95** | 7.85 ms | 4.51 ms | **42.58%** |
 
+### 4.4 Gráfico comparativo
+
+![Comparación de p95 por ejecución](grafico_p95.png)
+
+Las barras rojas (baseline) muestran mayor latencia y variabilidad. Las barras verdes (optimizado) son más bajas y uniformes, evidenciando mejor desempeño y estabilidad.
+
 ## 5. Análisis
 
 - **¿Qué métrica cambió más?** El p95 bajó 42.58% (de 7.85 ms a 4.51 ms). Es la métrica con mayor variación entre versiones.
@@ -62,8 +68,9 @@ Comparar el rendimiento de `/benchmark/baseline` y `/benchmark/optimizado` bajo 
 
 ## 7. Evidencias
 
-- Scripts k6: `evidencia/sesion30/benchmark_baseline.js`, `benchmark_optimizado.js`
-- Resultados: `evidencia/sesion30/resultados_baseline/`, `resultados_optimizado/`
-- CSV: `evidencia/sesion30/resumen_benchmark.csv`
-- Script Python: `evidencia/sesion30/analizar_benchmark.py`
-- Rama: `feature/sesion30_benchamrk_zelaya_anali`
+- Scripts k6: `docs_sesion30/benchmark_baseline.js`, `benchmark_optimizado.js`
+- Resultados: `docs_sesion30/resultados_baseline/`, `resultados_optimizado/`
+- CSV: `docs_sesion30/resumen_benchmark.csv`
+- Script Python: `docs_sesion30/analizar_benchmark.py`
+- Gráfico: `docs_sesion30/grafico_p95.png`
+- Rama: `feature/sesion_30_brenchmark_zelaya_anali`
