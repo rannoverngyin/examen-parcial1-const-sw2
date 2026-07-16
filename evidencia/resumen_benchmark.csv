@@ -1,0 +1,7 @@
+version,run,p95_ms,p99_ms,rps,error_rate
+baseline,run1,834.13,1113.59,19.16,0.01
+baseline,run2,869.08,1235.96,20.16,0.01
+baseline,run3,791.22,1090.02,19.15,0.01
+optimizado,run1,89.79,135.52,20.2,0.0
+optimizado,run2,85.92,133.52,20.52,0.0
+optimizado,run3,105.02,152.24,19.48,0.0

@@ -1,0 +1,16 @@
+=== 1. PRUEBA FUNCIONAL ===
+consultaBaseline() -> 95 registros (esperado: 5 con '99')
+Contenido baseline: [REG-99, REG-199, REG-299, REG-399, REG-499, REG-599, REG-699, REG-799, REG-899, REG-990, REG-991, REG-992, REG-993, REG-994, REG-995, REG-996, REG-997, REG-998, REG-999, REG-1099, REG-1199, REG-1299, REG-1399, REG-1499, REG-1599, REG-1699, REG-1799, REG-1899, REG-1990, REG-1991, REG-1992, REG-1993, REG-1994, REG-1995, REG-1996, REG-1997, REG-1998, REG-1999, REG-2099, REG-2199, REG-2299, REG-2399, REG-2499, REG-2599, REG-2699, REG-2799, REG-2899, REG-2990, REG-2991, REG-2992, REG-2993, REG-2994, REG-2995, REG-2996, REG-2997, REG-2998, REG-2999, REG-3099, REG-3199, REG-3299, REG-3399, REG-3499, REG-3599, REG-3699, REG-3799, REG-3899, REG-3990, REG-3991, REG-3992, REG-3993, REG-3994, REG-3995, REG-3996, REG-3997, REG-3998, REG-3999, REG-4099, REG-4199, REG-4299, REG-4399, REG-4499, REG-4599, REG-4699, REG-4799, REG-4899, REG-4990, REG-4991, REG-4992, REG-4993, REG-4994, REG-4995, REG-4996, REG-4997, REG-4998, REG-4999]
+consultaOptimizada() -> 5 registros (esperado: 5)
+Contenido optimizado: [REG-99, REG-199, REG-299, REG-399, REG-499]
+Ambas versiones retornan el mismo conjunto de datos: false
+
+=== 2. DEMOSTRACION (medicion directa in-process) ===
+
+=== 3. ANALISIS DE RESULTADOS (100 repeticiones) ===
+Baseline   -> avg: 0.6259 ms | p95: 2.6158 ms | p99: 4.6467 ms
+Optimizado -> avg: 0.0019 ms | p95: 0.0015 ms | p99: 0.0220 ms
+
+Mejora porcentual (avg): 99.70 %
+Mejora porcentual (p95): 99.94 %
+Decision: la version optimizada mejora significativamente el rendimiento.
