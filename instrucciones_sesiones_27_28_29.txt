@@ -1,0 +1,140 @@
+================================================================================
+GUÍA DE EJECUCIÓN Y EXPLICACIÓN DE LAS SESIONES 27, 28 Y 29
+================================================================================
+
+Este archivo contiene la explicación clara y breve de cada sesión, su respectivo 
+beneficio/conclusión de mejora, seguido de los comandos secuenciales exactos 
+que debes ejecutar en cada una.
+
+--------------------------------------------------------------------------------
+SESIÓN 27: Perfilamiento y Optimización con Java Flight Recorder (JFR)
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN:
+Esta sesión evalúa la diferencia de rendimiento entre un endpoint base y uno 
+optimizado. El endpoint base ('/rendimiento/productos/base') simula una carga 
+pesada mediante un 'Thread.sleep(200)' y realiza transformaciones repetitivas 
+en cada petición. El endpoint optimizado ('/rendimiento/productos/optimizado') 
+elimina el delay y pre-calcula la transformación una sola vez en el constructor 
+del servicio. Se utiliza JFR para grabar y analizar el comportamiento de la JVM 
+(consumo de CPU y uso de memoria Heap) durante las pruebas.
+
+CONCLUSIÓN Y BENEFICIO:
+Esta práctica ayuda a diagnosticar de forma científica y precisa cuellos de 
+botella a bajo nivel dentro de la máquina virtual (JVM). Permite identificar 
+código ineficiente (como delays bloqueantes o procesamiento repetitivo) y 
+comprobar empíricamente el impacto de una optimización (reducción del 93% en el 
+tiempo de respuesta y disminución del uso de CPU de la JVM de 0.77% a 0.57%), 
+asegurando que los cambios mejoren drásticamente el rendimiento sin introducir 
+fugas de memoria ni inestabilidad.
+
+COMANDOS A EJECUTAR:
+
+1. Iniciar la aplicación Spring Boot (en una terminal):
+   En Windows (PowerShell/CMD):
+   .\mvnw.cmd spring-boot:run
+   
+   En Git Bash / Linux:
+   ./mvnw spring-boot:run
+
+2. Obtener el PID (Process ID) del proceso Java de la aplicación (en otra terminal):
+   jcmd
+   (Busca el número de proceso que corresponde a tu aplicación de Spring Boot, por ejemplo, "17024")
+
+3. Grabar el perfilamiento del Endpoint BASE durante 30 segundos:
+   jcmd <PID> JFR.start name=s27-base settings=profile duration=30s filename=s27-base.jfr
+   (Reemplaza <PID> por el número que obtuviste en el paso anterior)
+
+4. Ejecutar el script Python de medición de rendimiento (mientras corre la grabación):
+   python scripts/medir_rendimiento.py
+
+5. Grabar el perfilamiento del Endpoint OPTIMIZADO durante 30 segundos:
+   jcmd <PID> JFR.start name=s27-opt settings=profile duration=30s filename=s27-optimizado.jfr
+
+6. Volver a ejecutar el script de medición para registrar la versión optimizada:
+   python scripts/medir_rendimiento.py
+
+7. Analizar los resultados de las grabaciones JFR generadas:
+   jfr print --events jdk.CPULoad s27-base.jfr
+   jfr print --events jdk.GCHeapMemoryUsage s27-base.jfr
+   jfr print --events jdk.CPULoad s27-optimizado.jfr
+   jfr print --events jdk.GCHeapMemoryUsage s27-optimizado.jfr
+
+--------------------------------------------------------------------------------
+SESIÓN 28: Pruebas de Carga con k6 y Análisis de Escalabilidad
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN:
+En esta sesión se realizan pruebas de carga utilizando k6 sobre el endpoint 
+'/carga/productos'. Se evalúa el comportamiento del sistema simulando la 
+concurrencia de múltiples usuarios virtuales (VUs) en etapas (ramp-up, estable, 
+ramp-down). Se comparan dos escenarios: uno con 30 VUs y otro con 50 VUs (escala 
+superior) para determinar si el rendimiento y el throughput (RPS) crecen de 
+forma proporcional o si el sistema alcanza un punto de saturación y degradación.
+
+CONCLUSIÓN Y BENEFICIO:
+Esta práctica ayuda a verificar la capacidad máxima de atención y el límite de 
+escalabilidad de la aplicación. Al comparar 30 VUs contra 50 VUs, se demostró 
+que el sistema escala de forma proporcional y saludable (el throughput subió un 
+119% y el tiempo de respuesta p95 se mantuvo estable en ~122 ms con 0% de errores). 
+Esto ayuda a garantizar que la arquitectura soporta incrementos repentinos de 
+tráfico web sin degradar la experiencia de usuario y sin saturar los recursos de hardware.
+
+COMANDOS A EJECUTAR:
+
+1. Iniciar la aplicación Spring Boot (si no está corriendo):
+   .\mvnw.cmd spring-boot:run
+
+2. Ejecutar prueba de humo (smoke test) rápida de validación básica con k6:
+   k6 run scripts/s28-smoke.js
+
+3. Ejecutar la prueba de carga principal con escenario de hasta 30 VUs:
+   k6 run scripts/s28-load.js
+
+4. Ejecutar la prueba de carga con escala incrementada a 50 VUs:
+   k6 run scripts/s28-load-50vu.js
+
+--------------------------------------------------------------------------------
+SESIÓN 29: Diseño de Escenarios Avanzados de Carga (Multiescenario)
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN:
+Esta sesión diseña un modelo de carga realista multiescenario que simula el 
+comportamiento real de los clientes. Combina: navegación/lecturas (GET en 
+etapas cerradas), registro de nuevos productos (POST con tasa abierta de 5 iter/s) 
+y un pico de solicitudes de reporte (GET con rampa abierta). Se ejecuta en 
+dos fases: un escenario base (pico de reportes de 20 iter/s) y un escenario de 
+pico doble (pico de reportes de 40 iter/s) para evaluar la recuperación 
+de la API bajo congestión intensa sin descartar iteraciones ni generar errores.
+
+CONCLUSIÓN Y BENEFICIO:
+Esta práctica mejora el proceso de pruebas al modelar flujos de trabajo mixtos 
+y heterogéneos (mezcla de consultas y escrituras), que es como interactúan los 
+usuarios reales en producción. Al duplicar el pico de reportes (de 20 a 40 iter/s), 
+se comprobó que la aplicación responde de forma resiliente y cumple los thresholds 
+definidos (SLA) sin generar errores de negocio ni trabajo descartado ('dropped_iterations'). 
+Ayuda a mitigar riesgos de concurrencia y bloqueos sobre colecciones compartidas 
+(como 'CopyOnWriteArrayList') bajo condiciones extremas.
+
+NOTA: Asegúrate de estar en la rama donde se encuentren los scripts de la sesión 29 
+(por ejemplo, cambiar de rama o copiar la carpeta 'performance/sesion29/').
+
+COMANDOS A EJECUTAR:
+
+1. Iniciar la aplicación Spring Boot (si no está corriendo):
+   .\mvnw.cmd spring-boot:run
+
+2. Ejecutar el Escenario Base Avanzado guardando la salida en un archivo txt:
+   En PowerShell:
+   k6 run -e BASE_URL=http://localhost:8080 --no-color .\performance\sesion29\escenarios-avanzados.js 2>&1 | Tee-Object -FilePath .\performance\sesion29\evidencia\salida-k6.txt
+   
+   En Línea de comandos estándar (CMD / Bash):
+   k6 run -e BASE_URL=http://localhost:8080 performance/sesion29/escenarios-avanzados.js
+
+3. Ejecutar el Escenario de Pico Doble guardando la salida en un archivo txt:
+   En PowerShell:
+   k6 run -e BASE_URL=http://localhost:8080 --no-color .\performance\sesion29\escenario-pico-doble.js 2>&1 | Tee-Object -FilePath .\performance\sesion29\evidencia\salida-pico-doble.txt
+   
+   En Línea de comandos estándar (CMD / Bash):
+   k6 run -e BASE_URL=http://localhost:8080 performance/sesion29/escenario-pico-doble.js
+================================================================================

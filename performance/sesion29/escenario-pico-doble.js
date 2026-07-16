@@ -19,13 +19,13 @@ export const options = {
       preAllocatedVUs: 10,
       maxVUs: 50,
       stages: [
-        { duration: '20s', target: 25 },  # Subida al primer pico
-        { duration: '20s', target: 25 },  # Estable en primer pico
-        { duration: '20s', target: 2 },   # Descenso al valle de recuperación
-        { duration: '20s', target: 2 },   # Estable en el valle
-        { duration: '20s', target: 25 },  # Subida al segundo pico
-        { duration: '20s', target: 25 },  # Estable en segundo pico
-        { duration: '20s', target: 0 },   # Bajada final a cero
+        { duration: '20s', target: 25 },
+        { duration: '20s', target: 25 },
+        { duration: '20s', target: 2 },
+        { duration: '20s', target: 2 },
+        { duration: '20s', target: 25 },
+        { duration: '20s', target: 25 },
+        { duration: '20s', target: 0 },
       ],
       tags: { flujo: 'pico-doble' },
     },
