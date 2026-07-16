@@ -101,6 +101,9 @@ evidencia/sesion30/
 │   └── run3.json / run3.txt
 ├── analizar_benchmark.py         # Script Python de extracción y cálculo estadístico
 ├── resumen_benchmark.csv         # Tabla consolidada para auditoría y graficación
+├── captura-baseline-k6.png       # Evidencia visual de ejecución k6 (baseline)
+├── captura-optimizado-k6.png     # Evidencia visual de ejecución k6 (optimizado)
+├── captura-analisis-python.png   # Evidencia visual del análisis estadístico y decisión en consola
 └── REPORTE_SESION30.md           # Este informe técnico
 ```
 
@@ -141,3 +144,15 @@ git checkout -b feature/oriundo_josue_sesion30
 git add .
 git commit -m "Agrega benchmark y analisis de resultados sesion 30"
 ```
+
+### D. Capturas Visuales de Evidencia
+
+#### 1. Ejecución de k6 - Versión Baseline (`/benchmark/baseline`)
+![Captura Baseline k6](captura-baseline-k6.png)
+
+#### 2. Ejecución de k6 - Versión Optimizada (`/benchmark/optimizado`)
+![Captura Optimizado k6](captura-optimizado-k6.png)
+
+#### 3. Análisis Cuantitativo en Python y Dictamen Oficial (`analizar_benchmark.py`)
+![Captura Análisis en Python](captura-analisis-python.png)
+
