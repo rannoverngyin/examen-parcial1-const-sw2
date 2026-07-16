@@ -11,13 +11,22 @@ def leer_metricas(carpeta, etiqueta):
         with archivo.open(encoding='utf-8') as f:
             data = json.load(f)
         metricas = data['metrics']
+        dur = metricas['http_req_duration']
+        reqs = metricas['http_reqs']
+        failed = metricas['http_req_failed']
+        
+        p95 = dur.get('p(95)', dur.get('percentiles', {}).get('95', 0))
+        p99 = dur.get('p(99)', dur.get('percentiles', {}).get('99', 0))
+        rps = reqs.get('rate', reqs.get('values', {}).get('rate', 0))
+        err = failed.get('rate', failed.get('values', {}).get('rate', 0))
+        
         registros.append({
             'version': etiqueta,
             'run': archivo.stem,
-            'p95_ms': metricas['http_req_duration']['percentiles']['95'],
-            'p99_ms': metricas['http_req_duration']['percentiles']['99'],
-            'rps': metricas['http_reqs']['rate'],
-            'error_rate': metricas['http_req_failed']['rate'],
+            'p95_ms': p95,
+            'p99_ms': p99,
+            'rps': rps,
+            'error_rate': err,
         })
     return registros
 
