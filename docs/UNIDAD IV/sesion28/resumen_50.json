@@ -5,21 +5,21 @@
     "id": "d41d8cd98f00b204e9800998ecf8427e",
     "groups": [],
     "checks": [
-        {
-          "id": "fad9fa412b86fcb03bee97c80dcd61f1",
-          "passes": 1350,
-          "fails": 0,
-          "name": "status 200",
-          "path": "::status 200"
-        },
-        {
-          "name": "contiene Laptop",
-          "path": "::contiene Laptop",
-          "id": "68ed58689933aadff0ed5a83cbda30b9",
-          "passes": 1350,
-          "fails": 0
-        }
-      ]
+      {
+        "id": "fad9fa412b86fcb03bee97c80dcd61f1",
+        "passes": 1350,
+        "fails": 0,
+        "name": "status 200",
+        "path": "::status 200"
+      },
+      {
+        "name": "contiene Laptop",
+        "path": "::contiene Laptop",
+        "id": "68ed58689933aadff0ed5a83cbda30b9",
+        "passes": 1350,
+        "fails": 0
+      }
+    ]
   },
   "options": {
     "summaryTimeUnit": "",
@@ -58,7 +58,7 @@
         "rate": 7198.575500539233
       },
       "type": "counter"
-    },
+    },  
     "checks": {
       "type": "rate",
       "contains": "default",

@@ -25,11 +25,6 @@ El endpoint base (`/base`) tiene un retraso artificial (`Thread.sleep(200)`) y p
 
 ![alt text](image-1.png)
 
-- Captura Performance.
-
-![alt text](image-2.png)
-
-![alt text](image-4.png)
 
 - Captura VisualVM/JFR.
 

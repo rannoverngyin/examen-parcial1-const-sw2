@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.unas.demoapi.application.CargaService;
 
 @RestController
-@RequestMapping("/carga")
+@RequestMapping("/carga_s28")
 public class CargaController {
 
     private final CargaService cargaService;
