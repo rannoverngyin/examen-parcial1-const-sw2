@@ -12,7 +12,7 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('http://localhost:8080/carga/productos');
+  const res = http.get('http://host.docker.internal:8080/carga/productos');
   check(res, {
     'status 200': (r) => r.status === 200,
     'respuesta JSON': (r) => r.headers['Content-Type']?.includes('json'),

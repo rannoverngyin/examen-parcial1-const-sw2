@@ -1,31 +1,49 @@
 # PRUEBAS DE CARGA Y MÉTRICAS
 
-#### Instalamos k6
-![alt text](image-8.png)
 
-#### Creamos un servicio con retraso configurable
-![alt text](image-2.png)
+#### 1. Levantar la API de Spring Boot:
+./mvnw spring-boot:run
 
-#### Creamos el controlador REST
-![alt text](image-3.png)
+#### Terminal 2: Pruebas y Monitoreo
+mkdir -p evidencia/sesion28
+
+#### Terminal 2: Pruebas y Monitoreo
+curl.exe -i http://localhost:8080/carga/health
+curl.exe -i http://localhost:8080/carga/productos
+curl.exe http://localhost:8080/carga/metricas
+
+#### Ejecutar el Smoke Test (1 usuario virtual por 10 segundos):
+docker run --rm --network host -v "$PWD:/app" -w /app grafana/k6 run scripts/s28-smoke.js
+
+
+#### Crear la carpeta para guardar los resultados
+
+mkdir -p evidencia/sesion28
+
+#### Ejecutar la Prueba de Carga Base (Progresiva de 10 a 30 usuarios):
+docker run --rm --network host -v "$PWD:/app" -w /app grafana/k6 run --summary-mode=full scripts/s28-load.js
+
+#### Respaldar el archivo JSON generado de la carga base
+cp evidencia/sesion28/resumen.json evidencia/sesion28/resumen-base.json
 
 >Cambio en application.properties
-![alt text](image-4.png)
+app.carga.delay-ms=20
 
-#### Ejecutamos y validamos
-![alt text](image-5.png)
+####  Reiniciar la API (Terminal 1):
+./mvnw spring-boot:run
 
-![alt text](image-6.png)
+#### Ejecutar la Segunda Prueba de Carga (Terminal 2):
+docker run --rm --network host -v "$PWD:/app" -w /app grafana/k6 run --summary-mode=full scripts/s28-load.js
 
-#### Creamos el smoke test
-![alt text](image-7.png)
-![alt text](image-9.png)
+#### Renombrar el JSON optimizado:
+mv evidencia/sesion28/resumen.json evidencia/sesion28/resumen-optimizado.json
 
-#### Creamos y ejecutar la prueba de carga
-![alt text](image-10.png)
-![alt text](image-11.png)
+#### Ver el contador final de peticiones registradas por Spring Boot:
+curl http://localhost:8080/carga/metricas
 
-#### Observamos CPU y memoria durante la carga
+
+
+
 >Versión con 120 de carga
 ![alt text](image-12.png)
 
@@ -42,9 +60,5 @@
 ![alt text](image-17.png)
 
 ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
-Se agregó el threshold p(95)<700ms manteniendo el mismo endpoint (/carga/productos) y la misma pausa de usuario (sleep(1)).
-Con una rampa progresiva de 1 a 30 VUs durante 70 segundos, el sistema cumplió el threshold ampliamente (p95 real = 38.27ms, muy por debajo de los 700ms exigidos), sin errores (0.00%) y con 100% de checks exitosos sobre 1180 iteraciones.
-El RPS se mantuvo estable en 16.79/s, valor casi idéntico al obtenido en la corrida optimizada anterior (16.63/s) con solo 10 VUs constantes. 
-Esto demuestra que una mayor cantidad de VUs no produce mayor throughput una vez que el sistema alcanza su capacidad de procesamiento sostenible: los usuarios virtuales adicionales generan más peticiones concurrentes, pero el servidor las procesa al mismo ritmo máximo, por lo que el exceso de carga se traduce en peticiones en espera (reflejado en la latencia máxima aislada de 141.93ms) en lugar de en más peticiones completadas por segundo. 
-El cuello de botella no está en CPU (que se mantuvo bajo según VisualVM), sino en la capacidad de concurrencia del pool de threads/conexiones del servidor embebido.
+
 ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
